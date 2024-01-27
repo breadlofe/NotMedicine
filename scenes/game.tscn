@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://5johbwli757f"]
+[gd_scene load_steps=3 format=3 uid="uid://5johbwli757f"]
 
+[ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
 [ext_resource type="PackedScene" uid="uid://ccdecwx483scy" path="res://scenes/player.tscn" id="1_l5aeu"]
 
 [node name="Game" type="Node"]
 
 [node name="worldRoot" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="worldRoot"]
-scale = Vector2(0.928525, 0.944473)
+[node name="floor1" parent="worldRoot" instance=ExtResource("1_jyq01")]
+position = Vector2(-473, -104)
 
 [node name="player" parent="worldRoot" instance=ExtResource("1_l5aeu")]
+
+[node name="Camera2D" type="Camera2D" parent="worldRoot/player"]
+scale = Vector2(0.928525, 0.944473)
