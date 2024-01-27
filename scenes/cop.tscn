@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://08jh4ff1bvyj"]
+
+[ext_resource type="Script" path="res://scripts/cop.gd" id="1_j83oe"]
+[ext_resource type="Texture2D" uid="uid://d4n0oceg27fu0" path="res://icon.svg" id="2_2j7wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w42jr"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owct5"]
+radius = 500.0
+
+[node name="cop" type="CharacterBody2D"]
+script = ExtResource("1_j83oe")
+
+[node name="cop_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w42jr")
+
+[node name="cop_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_2j7wa")
+
+[node name="cop_detect_area" type="Area2D" parent="." groups=["cop_group"]]
+
+[node name="cop_detect_collision" type="CollisionShape2D" parent="cop_detect_area"]
+shape = SubResource("CircleShape2D_owct5")

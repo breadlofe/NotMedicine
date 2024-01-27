@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ctpcud6swfm"]
+
+[ext_resource type="PackedScene" uid="uid://08jh4ff1bvyj" path="res://scenes/cop.tscn" id="1_ggppy"]
+
+[sub_resource type="Curve2D" id="Curve2D_ncks8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 366, 155, 0, 0, 0, 0, 926, 157, 0, 0, 0, 0, 929, 500, 0, 0, 0, 0, 363, 500, 0, 0, 0, 0, 366, 155)
+}
+point_count = 5
+
+[node name="test_scene" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ncks8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(366, 155)
+rotation = 0.00357141
+
+[node name="cop" parent="Path2D/PathFollow2D" instance=ExtResource("1_ggppy")]
+position = Vector2(2.01067, 2.99284)
+rotation = -0.00357141
