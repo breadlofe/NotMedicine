@@ -1,6 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://s5onyip10cg6"]
+[gd_scene load_steps=5 format=3 uid="uid://s5onyip10cg6"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_iy360"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_h2a1b"]
+material = SubResource("ORMMaterial3D_iy360")
+
+[sub_resource type="ImageTexture" id="ImageTexture_tgx66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hirac"]
 size = Vector2(109, 208)
@@ -11,7 +18,8 @@ size = Vector2(109, 208)
 position = Vector2(53.75, 103.75)
 scale = Vector2(108.5, 208.5)
 mesh = SubResource("BoxMesh_h2a1b")
+texture = SubResource("ImageTexture_tgx66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(53.5, 103)
+position = Vector2(53.75, 103.75)
 shape = SubResource("RectangleShape2D_hirac")
