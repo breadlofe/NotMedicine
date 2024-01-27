@@ -15,7 +15,6 @@ func _ready():
 	update_target_position(target_position)
 
 func _process(delta):
-	# print(target_position)
 	if state == "patrol":
 		if position.distance_to(target_position) > 0.5:
 			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
@@ -52,3 +51,7 @@ func _on_cop_detect_area_body_exited(body):
 				current_mark = i.position
 		target_position = current_mark
 		update_target_position(target_position)
+
+func _on_cop_detect_player_body_entered(body):
+	if body.is_in_group("player_group"):
+		print("GOT YOU >:)")
