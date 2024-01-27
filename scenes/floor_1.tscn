@@ -4,10 +4,14 @@
 
 [node name="floor1" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 781.0
-offset_bottom = 335.0
-color = Color(0.152941, 1, 1, 1)
+[node name="floor_background" type="ColorRect" parent="."]
+offset_right = 3200.0
+offset_bottom = 3200.0
+color = Color(0.466667, 0.6, 0.764706, 1)
 
 [node name="wall_test" parent="." instance=ExtResource("1_2ddma")]
 position = Vector2(154, 107)
+
+[node name="wall_test2" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1693, 1176)
+scale = Vector2(1.08755, 0.943255)
