@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://scripts/signal_bus.gd"
+ItemTypes="*res://scripts/item_types.gd"
 
 [input]
 
@@ -58,4 +59,6 @@ menu={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+textures/default_filters/anisotropic_filtering_level=0

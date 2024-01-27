@@ -1,12 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpf3gjlyo62kr"]
+[gd_scene load_steps=12 format=3 uid="uid://dpf3gjlyo62kr"]
 
 [ext_resource type="Texture2D" uid="uid://condv6rc4llsh" path="res://sprites/test_sprite.png" id="1_r6pkg"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w2ykl"]
+[ext_resource type="Script" path="res://scripts/button_sequencing.gd" id="3_c7vpa"]
+[ext_resource type="Texture2D" uid="uid://bfkvmxba3nkk0" path="res://sprites/Button-Up.png" id="4_l4hw6"]
+[ext_resource type="Texture2D" uid="uid://d20i8reqlbauj" path="res://sprites/Button-Right.png" id="5_qaka3"]
+[ext_resource type="Texture2D" uid="uid://bl5x14tyg77is" path="res://sprites/Button-Down.png" id="6_4te4d"]
+[ext_resource type="Texture2D" uid="uid://b8gde2icsappi" path="res://sprites/Button-Left.png" id="7_3oapi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s43a1"]
 size = Vector2(19, 23)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a2uso"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au6ha"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwfxm"]
+bg_color = Color(0.6, 0.6, 0.6, 0.356863)
 
 [node name="player" type="CharacterBody2D" groups=["player_group"]]
 collision_mask = 17
@@ -25,6 +36,76 @@ shape = SubResource("RectangleShape2D_s43a1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_a2uso")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.928525, 0.944473)
+
+[node name="ItemHUD" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Control" type="Control" parent="Camera2D/ItemHUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 80.0
+scale = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/ItemHUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D/ItemHUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/background = SubResource("StyleBoxFlat_au6ha")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uwfxm")
+max_value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="InputSequenceHUD" type="CanvasLayer" parent="Camera2D"]
+script = ExtResource("3_c7vpa")
+textures = Array[CompressedTexture2D]([ExtResource("4_l4hw6"), ExtResource("5_qaka3"), ExtResource("6_4te4d"), ExtResource("7_3oapi")])
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/InputSequenceHUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -148.0
+offset_right = 250.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/InputSequenceHUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/InputSequenceHUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/InputSequenceHUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/InputSequenceHUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/InputSequenceHUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

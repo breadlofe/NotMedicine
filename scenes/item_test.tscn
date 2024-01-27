@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ow1qqgusoe1"]
+
+[ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_t4ov1"]
+[ext_resource type="PackedScene" uid="uid://bu4hqsldx0pu8" path="res://scenes/invincibility_item.tscn" id="1_v70vp"]
+[ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="2_k8415"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="floor1" parent="." instance=ExtResource("1_t4ov1")]
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_v70vp")]
+position = Vector2(321, 539)
+
+[node name="player" parent="." instance=ExtResource("2_k8415")]
+position = Vector2(350, 345)
