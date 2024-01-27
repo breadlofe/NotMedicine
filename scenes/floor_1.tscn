@@ -629,3 +629,10 @@ rotation = 1.5708
 [node name="bed71" parent="." instance=ExtResource("3_aiqsb")]
 position = Vector2(2744, 480)
 rotation = 1.5708
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(944, 1768)
+color = Color(0.917647, 1, 0.662745, 1)
+energy = 0.5
+blend_mode = 2
+max_distance = 10.0
