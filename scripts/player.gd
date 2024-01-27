@@ -9,3 +9,14 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+
+
+func _on_area_2d_area_entered(area):
+	if(area.is_in_group("patient_group")):
+		print("shit my pants")
+		SignalBus.on_player_attempt_funny.emit()
+		#actually call some signal that connects to the
+		#input thing
+
+
+

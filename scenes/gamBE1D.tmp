@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://5johbwli757f"]
+[gd_scene load_steps=4 format=3 uid="uid://5johbwli757f"]
 
 [ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
 [ext_resource type="PackedScene" uid="uid://dl6dow356dkaa" path="res://scenes/patient.tscn" id="2_ltn8d"]
-[ext_resource type="Script" path="res://scenes/button_sequencing.gd" id="4_flcqr"]
 
 [node name="Game" type="Node"]
 
@@ -21,13 +20,12 @@ position = Vector2(-296, 872)
 [node name="Camera2D" type="Camera2D" parent="worldRoot/player"]
 scale = Vector2(0.928525, 0.944473)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="worldRoot/player/Camera2D"]
-script = ExtResource("4_flcqr")
-
-[node name="ColorRect" type="ColorRect" parent="worldRoot/player/Camera2D/CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="worldRoot/player/Camera2D"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
