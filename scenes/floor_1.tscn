@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://f574280np1ko"]
+[gd_scene load_steps=4 format=3 uid="uid://f574280np1ko"]
 
 [ext_resource type="PackedScene" uid="uid://s5onyip10cg6" path="res://scenes/wall_test.tscn" id="1_2ddma"]
 [ext_resource type="Texture2D" uid="uid://dcw07pkgtyybu" path="res://sprites/Floor_Tile.png" id="1_fcasb"]
+[ext_resource type="PackedScene" uid="uid://bky6munpag06r" path="res://scenes/bed.tscn" id="3_aiqsb"]
 
 [node name="floor1" type="Node2D"]
 
@@ -369,3 +370,269 @@ scale = Vector2(0.28, 2.51484)
 position = Vector2(792, 514)
 rotation = 1.5708
 scale = Vector2(0.28, 1.84)
+
+[node name="bed" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(40, 40)
+
+[node name="bed2" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(216, 40)
+
+[node name="bed3" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(40, 560)
+rotation = -1.5708
+
+[node name="bed4" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(40, 432)
+rotation = -1.5708
+
+[node name="bed5" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(40, 304)
+rotation = -1.5708
+
+[node name="bed6" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(128, 40)
+
+[node name="bed7" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(48, 1432)
+
+[node name="bed8" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(216, 1432)
+
+[node name="bed9" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(40, 1976)
+rotation = -1.5708
+
+[node name="bed10" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(40, 2112)
+rotation = -1.5708
+
+[node name="bed11" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(48, 2840)
+rotation = 3.14159
+
+[node name="bed12" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(232, 2840)
+rotation = 3.14159
+
+[node name="bed13" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(32, 2304)
+rotation = -1.5708
+
+[node name="bed14" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(48, 2960)
+rotation = -1.5708
+
+[node name="bed15" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(48, 3152)
+rotation = -1.5708
+
+[node name="bed16" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1176, 2952)
+rotation = 1.5708
+
+[node name="bed17" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1168, 3064)
+rotation = 1.5708
+
+[node name="bed18" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(464, 2408)
+
+[node name="bed19" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(848, 2408)
+
+[node name="bed20" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(976, 2408)
+
+[node name="bed21" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1552, 2408)
+
+[node name="bed22" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(632, 2952)
+
+[node name="bed23" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1424, 2408)
+
+[node name="bed24" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1104, 2408)
+
+[node name="bed25" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1688, 2408)
+
+[node name="bed26" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2120, 2408)
+
+[node name="bed27" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1752, 2944)
+rotation = 1.5708
+
+[node name="bed28" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1752, 3056)
+rotation = 1.5708
+
+[node name="bed29" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1904, 2408)
+
+[node name="bed30" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1864, 2944)
+
+[node name="bed31" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2264, 2408)
+
+[node name="bed32" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2264, 2736)
+rotation = 3.14159
+
+[node name="bed33" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2680, 2736)
+rotation = 1.5708
+
+[node name="bed34" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2800, 3064)
+rotation = 3.14159
+
+[node name="bed35" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3008, 2632)
+
+[node name="bed36" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3168, 3160)
+rotation = 3.14159
+
+[node name="bed37" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 1104)
+rotation = 1.5708
+
+[node name="bed38" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 2456)
+rotation = 1.5708
+
+[node name="bed39" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 1648)
+rotation = 1.5708
+
+[node name="bed40" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 1840)
+rotation = 1.5708
+
+[node name="bed41" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 2024)
+rotation = 1.5708
+
+[node name="bed42" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 1448)
+rotation = 1.5708
+
+[node name="bed43" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 1264)
+rotation = 1.5708
+
+[node name="bed44" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2256, 1296)
+rotation = -1.5708
+
+[node name="bed45" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2744, 1296)
+rotation = 1.5708
+
+[node name="bed46" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2736, 1856)
+rotation = 1.5708
+
+[node name="bed47" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2144, 1096)
+rotation = 1.5708
+
+[node name="bed48" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2144, 1512)
+rotation = 1.5708
+
+[node name="bed49" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1272, 1624)
+
+[node name="bed50" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1272, 2048)
+rotation = 3.14159
+
+[node name="bed51" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1280, 1512)
+rotation = 3.14159
+
+[node name="bed52" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1272, 1096)
+
+[node name="bed53" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2496, 1088)
+
+[node name="bed54" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(456, 2056)
+rotation = -1.5708
+
+[node name="bed55" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(456, 1624)
+rotation = -1.5708
+
+[node name="bed56" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(952, 1088)
+
+[node name="bed57" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1880, 2048)
+rotation = 3.14159
+
+[node name="bed58" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1632, 584)
+
+[node name="bed59" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1520, 584)
+
+[node name="bed60" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1520, 464)
+rotation = 1.5708
+
+[node name="bed61" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2744, 816)
+rotation = 1.5708
+
+[node name="bed62" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2744, 144)
+rotation = 1.5708
+
+[node name="bed63" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(1640, 472)
+rotation = 3.14159
+
+[node name="bed64" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(472, 584)
+
+[node name="bed65" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(472, 144)
+rotation = -1.5708
+
+[node name="bed66" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 304)
+rotation = 1.5708
+
+[node name="bed67" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 744)
+rotation = 1.5708
+
+[node name="bed68" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 528)
+rotation = 1.5708
+
+[node name="bed69" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 968)
+rotation = 1.5708
+
+[node name="bed70" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(3160, 80)
+rotation = 1.5708
+
+[node name="bed71" parent="." instance=ExtResource("3_aiqsb")]
+position = Vector2(2744, 480)
+rotation = 1.5708
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(944, 1768)
+color = Color(0.917647, 1, 0.662745, 1)
+energy = 0.5
+blend_mode = 2
+max_distance = 10.0

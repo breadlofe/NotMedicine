@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d4n0oceg27fu0" path="res://icon.svg" id="2_2j7wa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w42jr"]
-size = Vector2(48, 48)
+size = Vector2(32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_owct5"]
 radius = 250.0
@@ -21,8 +21,8 @@ shape = SubResource("RectangleShape2D_w42jr")
 shape = SubResource("CircleShape2D_owct5")
 
 [node name="cop_sprite" type="Sprite2D" parent="."]
-position = Vector2(-1.43051e-06, -1.43051e-06)
-scale = Vector2(0.375, 0.375)
+position = Vector2(-7.15256e-07, -7.15256e-07)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_2j7wa")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

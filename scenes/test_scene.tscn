@@ -2,38 +2,64 @@
 
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_1jpm0"]
 [ext_resource type="PackedScene" uid="uid://08jh4ff1bvyj" path="res://scenes/cop.tscn" id="1_ggppy"]
-[ext_resource type="PackedScene" uid="uid://bbkehdfc3e0d5" path="res://scenes/object.tscn" id="3_h4fwo"]
+[ext_resource type="PackedScene" uid="uid://s5onyip10cg6" path="res://scenes/wall_test.tscn" id="3_5wv2p"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_t86fc"]
-vertices = PackedVector2Array(1072, 368, 1136, 16, 1136, 632, 1072, 400, 1072, 80, 16, 16, 272, 80, 1072, 560, 16, 632, 272, 560, 240, 560, 80, 560, 80, 80, 272, 272, 240, 80, 272, 240, 912, 240, 432, 272, 912, 368, 432, 400)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 1, 4, 6), PackedInt32Array(7, 2, 8, 9), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 10, 8), PackedInt32Array(11, 8, 5, 12), PackedInt32Array(13, 9, 10, 14), PackedInt32Array(14, 12, 5), PackedInt32Array(14, 5, 6), PackedInt32Array(14, 6, 15), PackedInt32Array(13, 14, 15), PackedInt32Array(13, 15, 16, 17), PackedInt32Array(17, 16, 18, 19), PackedInt32Array(3, 19, 18, 0), PackedInt32Array(3, 2, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(16, 16, 16, 632, 1136, 632, 1136, 16), PackedVector2Array(80, 80, 240, 80, 240, 560, 80, 560), PackedVector2Array(272, 272, 432, 272, 432, 400, 1072, 400, 1072, 560, 272, 560), PackedVector2Array(272, 80, 1072, 80, 1072, 368, 912, 368, 912, 240, 272, 240)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ojki4"]
+vertices = PackedVector2Array(1057, 353, 1111, 41, 1111, 599, 1056, 545, 1056, 415, 1057, 159, 41, 599, 286, 545, 225, 545, 95, 545, 41, 41, 95, 95, 225, 95, 927, 353, 417, 415, 417, 287, 927, 225, 286, 225, 287, 287, 1056, 159, 1056, 95, 287, 415, 286, 415, 286, 95)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(1, 0, 5), PackedInt32Array(3, 2, 6, 7), PackedInt32Array(8, 7, 6), PackedInt32Array(9, 8, 6), PackedInt32Array(9, 6, 10, 11), PackedInt32Array(11, 10, 1, 12), PackedInt32Array(13, 0, 4, 14), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 16, 15, 18), PackedInt32Array(5, 19, 20, 1), PackedInt32Array(18, 21, 22, 12, 17), PackedInt32Array(22, 7, 8, 12), PackedInt32Array(23, 17, 12), PackedInt32Array(23, 12, 1), PackedInt32Array(1, 20, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 1144, 8, 1144, 632, 8, 632)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 33.0
 
 [node name="test_scene" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_1jpm0")]
-position = Vector2(40, 40.0001)
+position = Vector2(32, 152)
+
+[node name="cop" parent="." instance=ExtResource("1_ggppy")]
+position = Vector2(584, 592)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_t86fc")
+navigation_polygon = SubResource("NavigationPolygon_ojki4")
+
+[node name="wall_test" parent="NavigationRegion2D" instance=ExtResource("3_5wv2p")]
+position = Vector2(128, 128)
+scale = Vector2(0.590991, 1.85)
+
+[node name="wall_test2" parent="NavigationRegion2D" instance=ExtResource("3_5wv2p")]
+position = Vector2(320, 192)
+rotation = -1.5708
+scale = Vector2(0.59, 3.38568)
+
+[node name="wall_test4" parent="NavigationRegion2D" instance=ExtResource("3_5wv2p")]
+position = Vector2(320, 320)
+scale = Vector2(0.590991, 0.615)
+
+[node name="wall_test3" parent="NavigationRegion2D" instance=ExtResource("3_5wv2p")]
+position = Vector2(320, 512)
+rotation = -1.5708
+scale = Vector2(0.59, 3.38568)
+
+[node name="wall_test5" parent="NavigationRegion2D" instance=ExtResource("3_5wv2p")]
+position = Vector2(960, 192)
+scale = Vector2(0.590991, 0.615)
 
 [node name="PositionNodes" type="Node2D" parent="."]
 
 [node name="Pos1" type="Marker2D" parent="PositionNodes"]
-position = Vector2(64, 576)
+position = Vector2(72, 568)
 
 [node name="Pos2" type="Marker2D" parent="PositionNodes"]
-position = Vector2(64, 64)
+position = Vector2(72, 72)
 
 [node name="Pos3" type="Marker2D" parent="PositionNodes"]
-position = Vector2(256, 64)
+position = Vector2(256, 72)
 
 [node name="Pos4" type="Marker2D" parent="PositionNodes"]
-position = Vector2(1088, 64)
+position = Vector2(1080, 72)
 
 [node name="Pos5" type="Marker2D" parent="PositionNodes"]
-position = Vector2(1088, 384)
+position = Vector2(1080, 384)
 
 [node name="Pos6" type="Marker2D" parent="PositionNodes"]
 position = Vector2(896, 384)
@@ -51,108 +77,7 @@ position = Vector2(448, 256)
 position = Vector2(256, 256)
 
 [node name="Pos11" type="Marker2D" parent="PositionNodes"]
-position = Vector2(256, 576)
+position = Vector2(256, 568)
 
 [node name="Pos12" type="Marker2D" parent="PositionNodes"]
-position = Vector2(1088, 576)
-
-[node name="cop" parent="." instance=ExtResource("1_ggppy")]
-position = Vector2(768, 576)
-
-[node name="WallObjects" type="Node2D" parent="."]
-
-[node name="object" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(128, 128)
-
-[node name="object2" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(128, 192)
-
-[node name="object3" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(128, 256)
-
-[node name="object4" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(128, 320)
-
-[node name="object5" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(128, 384)
-
-[node name="object6" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(128, 448)
-
-[node name="object7" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(320, 320)
-
-[node name="object8" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(320, 384)
-
-[node name="object9" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(320, 448)
-
-[node name="object10" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(384, 448)
-
-[node name="object11" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(448, 448)
-
-[node name="object12" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(512, 448)
-
-[node name="object13" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(576, 448)
-
-[node name="object14" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(640, 448)
-
-[node name="object15" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(704, 448)
-
-[node name="object16" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(768, 448)
-
-[node name="object17" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(832, 448)
-
-[node name="object18" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(896, 448)
-
-[node name="object19" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(960, 448)
-
-[node name="object20" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(320, 128)
-
-[node name="object21" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(384, 128)
-
-[node name="object22" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(448, 128)
-
-[node name="object23" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(512, 128)
-
-[node name="object24" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(576, 128)
-
-[node name="object25" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(640, 128)
-
-[node name="object26" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(704, 128)
-
-[node name="object27" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(768, 128)
-
-[node name="object28" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(832, 128)
-
-[node name="object29" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(896, 128)
-
-[node name="object30" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(960, 128)
-
-[node name="object31" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(960, 192)
-
-[node name="object32" parent="WallObjects" instance=ExtResource("3_h4fwo")]
-position = Vector2(960, 256)
+position = Vector2(1080, 568)
