@@ -15,7 +15,7 @@ func _ready():
 	update_target_position(target_position)
 
 func _process(delta):
-	print(target_position)
+	# print(target_position)
 	if state == "patrol":
 		if position.distance_to(target_position) > 0.5:
 			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
@@ -38,7 +38,6 @@ func _on_cop_detect_area_body_entered(body):
 	if body.is_in_group("player_group"):
 		player = body
 		state = "chase"
-		print("PLAYER ENTERED")
 
 func _on_cop_detect_area_body_exited(body):
 	if body.is_in_group("player_group"):
@@ -46,6 +45,10 @@ func _on_cop_detect_area_body_exited(body):
 		last_velocity = player.velocity
 		player = null
 		state = "patrol"
-		target_position = node_positions[randi() % node_positions.size()].position
+		var current_mark: Vector2 = node_positions[0].position
+		for i in node_positions:
+			var temp: float = abs(last_position - i.position).length()
+			if temp < abs(current_mark - last_position).length():
+				current_mark = i.position
+		target_position = current_mark
 		update_target_position(target_position)
-		print("PLAYER EXITED")
