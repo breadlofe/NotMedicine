@@ -19,9 +19,6 @@ func _process(delta):
 		if position.distance_to(target_position) > 0.5:
 			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
 			move_and_slide()
-#		elif last_velocity != Vector2.ZERO:
-#			target_position = player.position
-#			move_and_slide()
 		else:
 			target_position = node_positions[randi() % node_positions.size()].position
 			await get_tree().create_timer(1).timeout

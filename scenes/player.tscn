@@ -1,25 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccdecwx483scy"]
+[gd_scene load_steps=4 format=3 uid="uid://dpf3gjlyo62kr"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_ite5s"]
-[ext_resource type="Texture2D" uid="uid://condv6rc4llsh" path="res://sprites/test_sprite.png" id="2_vo4in"]
+[ext_resource type="Texture2D" uid="uid://condv6rc4llsh" path="res://sprites/test_sprite.png" id="1_r6pkg"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_w2ykl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_62y7u"]
-size = Vector2(256, 289)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s43a1"]
+size = Vector2(19, 23)
 
-<<<<<<< Updated upstream
-[node name="player" type="CharacterBody2D" groups=["Player"]]
-=======
 [node name="player" type="CharacterBody2D" groups=["player_group"]]
->>>>>>> Stashed changes
-scale = Vector2(0.144047, 0.15595)
-script = ExtResource("1_ite5s")
+script = ExtResource("1_w2ykl")
 
-[node name="player_sprite" type="Sprite2D" parent="."]
-position = Vector2(8, -32)
-scale = Vector2(-13.9899, 13.0379)
-texture = ExtResource("2_vo4in")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r6pkg")
 hframes = 6
 
-[node name="player_collider" type="CollisionShape2D" parent="."]
-position = Vector2(25, 33.5)
-shape = SubResource("RectangleShape2D_62y7u")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_s43a1")
