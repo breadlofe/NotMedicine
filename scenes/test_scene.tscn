@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://s5onyip10cg6" path="res://scenes/wall_test.tscn" id="3_5wv2p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ojki4"]
-vertices = PackedVector2Array(1057, 353, 1111, 41, 1111, 599, 1056, 545, 1056, 415, 1057, 159, 41, 599, 286, 545, 225, 545, 95, 545, 41, 41, 95, 95, 225, 95, 927, 353, 417, 415, 417, 287, 927, 225, 286, 225, 287, 287, 1056, 159, 1056, 95, 287, 415, 286, 415, 286, 95)
+vertices = PackedVector2Array(1057, 353, 1119, 33, 1119, 607, 1056, 545, 1056, 415, 1057, 159, 33, 607, 286, 545, 225, 545, 95, 545, 33, 33, 95, 95, 225, 95, 927, 353, 417, 415, 417, 287, 927, 225, 286, 225, 287, 287, 1056, 159, 1056, 95, 287, 415, 286, 415, 286, 95)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(1, 0, 5), PackedInt32Array(3, 2, 6, 7), PackedInt32Array(8, 7, 6), PackedInt32Array(9, 8, 6), PackedInt32Array(9, 6, 10, 11), PackedInt32Array(11, 10, 1, 12), PackedInt32Array(13, 0, 4, 14), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 16, 15, 18), PackedInt32Array(5, 19, 20, 1), PackedInt32Array(18, 21, 22, 12, 17), PackedInt32Array(22, 7, 8, 12), PackedInt32Array(23, 17, 12), PackedInt32Array(23, 12, 1), PackedInt32Array(1, 20, 23)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 1144, 8, 1144, 632, 8, 632)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1152, 0, 1152, 640, 0, 640)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 33.0
 
