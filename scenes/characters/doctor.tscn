@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cptmdfs0olo5j"]
+
+[ext_resource type="Script" path="res://scripts/doctor.gd" id="1_c1olb"]
+[ext_resource type="Texture2D" uid="uid://b0kuycmppwbjc" path="res://sprites/docter cat.png" id="1_tk13c"]
+[ext_resource type="PackedScene" uid="uid://dqkgy0al7xgib" path="res://scenes/components/patrol.tscn" id="3_56rd5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atn03"]
+size = Vector2(41, 70)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3vci"]
+radius = 56.0089
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("patrol_component")]
+script = ExtResource("1_c1olb")
+detection_radius = 150
+patrol_component = NodePath("patrol")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.125, 1.96875)
+texture = ExtResource("1_tk13c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_atn03")
+
+[node name="Visibility" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visibility"]
+shape = SubResource("CircleShape2D_r3vci")
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="patrol" parent="." instance=ExtResource("3_56rd5")]
+
+[connection signal="body_entered" from="Visibility" to="." method="_on_visibility_body_entered"]
+[connection signal="body_exited" from="Visibility" to="." method="_on_visibility_body_exited"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="reached_patrol_point" from="patrol" to="." method="_on_patrol_reached_patrol_point"]
