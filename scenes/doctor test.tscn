@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxasnodypxr0x"]
+
+[ext_resource type="PackedScene" uid="uid://cptmdfs0olo5j" path="res://scenes/characters/doctor.tscn" id="1_odpv3"]
+[ext_resource type="PackedScene" uid="uid://ccdecwx483scy" path="res://scenes/player.tscn" id="2_63his"]
+
+[node name="DoctorTest" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_odpv3")]
+position = Vector2(363, 299)
+patrol_point_group = "DocPatrol"
+
+[node name="player" parent="." instance=ExtResource("2_63his")]
+position = Vector2(818, 256)
+
+[node name="Marker2D" type="Marker2D" parent="." groups=["DocPatrol"]]
+position = Vector2(364, 302)
+
+[node name="Marker2D2" type="Marker2D" parent="." groups=["DocPatrol"]]
+position = Vector2(364, 148)
+
+[node name="Marker2D3" type="Marker2D" parent="." groups=["DocPatrol"]]
+position = Vector2(764, 148)
+
+[node name="Marker2D4" type="Marker2D" parent="." groups=["DocPatrol"]]
+position = Vector2(764, 302)

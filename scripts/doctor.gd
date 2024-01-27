@@ -5,16 +5,20 @@ enum States {PATROL, CHASE, IDLE}
 @export var detection_radius : int
 @export var speed : int = 200
 @export var patrol_component : Node2D
+@export var patrol_point_group : String
 @export var idle_time : float = 2.5
 var visibility_color = Color(0.867, 0.91, 0.247, 0.1)
 var target
 var target_position
+var patrol_direction : Vector2 = Vector2.ZERO
 var state = States.PATROL
-var pre_idle_state = States.PATROL
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if patrol_component:
+		patrol_component.group_name = patrol_point_group
+		patrol_component._initialize()
 	var shape = CircleShape2D.new()
 	shape.radius = detection_radius
 	$Visibility/CollisionShape2D.shape = shape
@@ -25,7 +29,8 @@ func _ready():
 func _process(delta):
 	queue_redraw()
 	if state == States.PATROL:
-		velocity = patrol_component.direction * speed
+		patrol_direction = to_local(patrol_component.current_patrol_point.position).normalized()
+		velocity = patrol_direction * speed
 		move_and_slide()
 	if state == States.CHASE:
 		if target:
@@ -49,7 +54,6 @@ func _on_visibility_body_entered(body):
 func _on_visibility_body_exited(body):
 	if body == target:
 		target = null
-		pre_idle_state = state
 		state = States.IDLE
 		$IdleTimer.start()
 
@@ -59,10 +63,9 @@ func _draw():
 
 
 func _on_idle_timer_timeout():
-	state = pre_idle_state
+	state = States.PATROL
 	
 	
 func _on_patrol_reached_patrol_point():
-	pre_idle_state = state
 	state = States.IDLE
 	$IdleTimer.start()
