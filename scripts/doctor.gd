@@ -44,7 +44,7 @@ func _process(delta):
 func _on_visibility_body_entered(body):
 	if target:
 		return
-	elif body.is_in_group("Player"):
+	elif body.is_in_group("player_group"):
 		target = body
 		state = States.CHASE
 		if not $IdleTimer.is_stopped():
