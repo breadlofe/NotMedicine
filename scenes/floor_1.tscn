@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://f574280np1ko"]
+[gd_scene load_steps=5 format=3 uid="uid://f574280np1ko"]
 
 [ext_resource type="PackedScene" uid="uid://s5onyip10cg6" path="res://scenes/wall_test.tscn" id="1_2ddma"]
+[ext_resource type="Texture2D" uid="uid://6x3ivh1m76va" path="res://sprites/Floor_Test.png" id="1_pbvdp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8gkys"]
+
+[sub_resource type="TileSet" id="TileSet_nc1yf"]
+tile_size = Vector2i(256, 256)
 
 [node name="floor1" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_8gkys")
+texture = ExtResource("1_pbvdp")
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+position = Vector2(1192, 1244)
+tile_set = SubResource("TileSet_nc1yf")
+rendering_quadrant_size = 32
+format = 2
 
 [node name="floor_background" type="ColorRect" parent="."]
 offset_right = 3200.0
@@ -10,8 +27,202 @@ offset_bottom = 3200.0
 color = Color(0.466667, 0.6, 0.764706, 1)
 
 [node name="wall_test" parent="." instance=ExtResource("1_2ddma")]
-position = Vector2(154, 107)
+position = Vector2(256, -2)
+scale = Vector2(0.28, 3.08)
 
-[node name="wall_test2" parent="." instance=ExtResource("1_2ddma")]
-position = Vector2(1693, 1176)
-scale = Vector2(1.08755, 0.943255)
+[node name="wall_test3" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(192, 608)
+rotation = 1.5708
+scale = Vector2(0.274, 0.94)
+
+[node name="wall_test4" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(290, 1352)
+rotation = 1.5708
+scale = Vector2(0.28, 1.4)
+
+[node name="wall_test5" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(290, 1352)
+scale = Vector2(0.28, 0.755511)
+
+[node name="wall_test6" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(290, 1576)
+scale = Vector2(0.28, 1.35551)
+
+[node name="wall_test7" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(0, 1856)
+rotation = -1.5708
+scale = Vector2(0.28, 1.07551)
+
+[node name="wall_test8" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(290, 1920)
+scale = Vector2(0.28, 1.55551)
+
+[node name="wall_test9" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(216, 2216)
+rotation = 1.5708
+scale = Vector2(0.28, 1.03551)
+
+[node name="wall_test10" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(288, 2335)
+scale = Vector2(0.28, 2.71552)
+
+[node name="wall_test11" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(320, 2880)
+rotation = 1.5708
+scale = Vector2(0.28, 1.55551)
+
+[node name="wall_test12" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(576, 2877)
+rotation = 1.5708
+scale = Vector2(0.28, 0.915514)
+
+[node name="wall_test13" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(568, 2877)
+scale = Vector2(0.28, 1.23551)
+
+[node name="wall_test14" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(384, 2336)
+scale = Vector2(0.28, 2.3)
+
+[node name="wall_test15" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(760, 3104)
+rotation = 1.5708
+scale = Vector2(0.28, 0.915514)
+
+[node name="wall_test16" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1344, 3104)
+rotation = 1.5708
+scale = Vector2(0.28, 2.47552)
+
+[node name="wall_test17" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1920, 3104)
+rotation = 1.5708
+scale = Vector2(0.28, 2.47552)
+
+[node name="wall_test18" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2872, 3104)
+rotation = 1.5708
+scale = Vector2(0.28, 4.27552)
+
+[node name="wall_test19" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2944, 3136)
+scale = Vector2(0.28, 0.31552)
+
+[node name="wall_test20" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2944, 2944)
+scale = Vector2(0.28, 0.63552)
+
+[node name="wall_test21" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2944, 2816)
+scale = Vector2(0.28, 0.31552)
+
+[node name="wall_test22" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(3136, 2816)
+rotation = 1.5708
+scale = Vector2(0.28, 0.915515)
+
+[node name="wall_test23" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2944, 2560)
+scale = Vector2(0.28, 1.27552)
+
+[node name="wall_test24" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(3200, 2559)
+rotation = 1.5708
+scale = Vector2(0.28, 1.55552)
+
+[node name="wall_test25" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(3200, 2336)
+rotation = 1.5708
+scale = Vector2(0.28, 1.55552)
+
+[node name="wall_test26" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(3200, 2080)
+rotation = 1.5708
+scale = Vector2(0.28, 1.55552)
+
+[node name="wall_test27" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2816, 2560)
+rotation = 1.5708
+scale = Vector2(0.28, 0.315515)
+
+[node name="wall_test28" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2878, 2877)
+rotation = 1.5708
+scale = Vector2(0.28, 0.6)
+
+[node name="wall_test29" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2848, 2888)
+scale = Vector2(0.28, 1.18435)
+
+[node name="wall_test30" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2848, 2888)
+scale = Vector2(0.28, 1.18435)
+
+[node name="wall_test31" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1792, 2880)
+scale = Vector2(0.28, 1.18435)
+
+[node name="wall_test32" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2688, 2877)
+rotation = 1.5708
+scale = Vector2(0.28, 6.15)
+
+[node name="wall_test33" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1216, 2879)
+scale = Vector2(0.28, 1.18435)
+
+[node name="wall_test34" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1344, 2878)
+rotation = 1.5708
+scale = Vector2(0.28, 3.64)
+
+[node name="wall_test35" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1224, 2992)
+rotation = 1.5708
+scale = Vector2(0.28, 1.26118)
+
+[node name="wall_test36" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2720, 2432)
+scale = Vector2(0.28, 1.85)
+
+[node name="wall_test37" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2728, 2784)
+rotation = 1.5708
+scale = Vector2(0.28, 1.13453)
+
+[node name="wall_test38" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2816, 2336)
+rotation = 1.5708
+scale = Vector2(0.28, 11.6)
+
+[node name="wall_test39" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2432, 2784)
+rotation = 1.5708
+scale = Vector2(0.28, 2.46533)
+
+[node name="wall_test40" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1856, 2784)
+rotation = 1.5708
+scale = Vector2(0.28, 2.46533)
+
+[node name="wall_test41" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1280, 2784)
+rotation = 1.5708
+scale = Vector2(0.28, 2.46533)
+
+[node name="wall_test42" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(704, 2784)
+rotation = 1.5708
+scale = Vector2(0.28, 1.52567)
+
+[node name="wall_test43" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(2184, 2336)
+scale = Vector2(0.28, 2.30786)
+
+[node name="wall_test44" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(1608, 2335)
+scale = Vector2(0.28, 2.30786)
+
+[node name="wall_test45" parent="." instance=ExtResource("1_2ddma")]
+position = Vector2(912, 2336)
+scale = Vector2(0.28, 2.30786)
