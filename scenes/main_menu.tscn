@@ -26,12 +26,14 @@ scale = Vector2(1.38797, 1.45097)
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
 mouse_force_pass_scroll_events = false
 theme = ExtResource("2_oxt34")
 text = "Start"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
 theme = ExtResource("2_oxt34")
 text = "Quit"
 
