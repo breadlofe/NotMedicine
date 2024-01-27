@@ -26,6 +26,7 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("2_2j7wa")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [connection signal="body_entered" from="cop_detect_area" to="." method="_on_cop_detect_area_body_entered"]
 [connection signal="body_exited" from="cop_detect_area" to="." method="_on_cop_detect_area_body_exited"]

@@ -6,7 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62y7u"]
 size = Vector2(256, 289)
 
+<<<<<<< Updated upstream
 [node name="player" type="CharacterBody2D" groups=["Player"]]
+=======
+[node name="player" type="CharacterBody2D" groups=["player_group"]]
+>>>>>>> Stashed changes
 scale = Vector2(0.144047, 0.15595)
 script = ExtResource("1_ite5s")
 
