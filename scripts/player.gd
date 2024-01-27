@@ -9,6 +9,7 @@ var current_item = null
 
 var in_patient_area = 0
 var current_patients: Array[Node]
+var cops_arresting_player: Array[Node]
 
 @onready var timer = $ItemTimer as Timer
 
@@ -46,6 +47,9 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 
+func _process(delta):
+	if len(cops_arresting_player) <= 0:
+		$ArrestTimer.stop()
 
 func pickup_handler(type):
 	has_item = true
@@ -79,9 +83,21 @@ func _on_area_2d_area_entered(area):
 		if area.has_method("pickup") and not has_item:
 			area.pickup()
 		
-
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("patient_group"):
 		current_patients.erase(area.get_parent())
 		in_patient_area -= 1
 		max(in_patient_area, 0)
+
+func arrest(time, cop:Node):
+	if $ArrestTimer.is_stopped():
+		$ArrestTimer.start(time)
+	cops_arresting_player.append(cop)
+	
+func end_arrest(cop:Node):
+	cops_arresting_player.erase(cop)
+	
+
+
+func _on_arrest_timer_timeout():
+	get_tree().quit()

@@ -39,3 +39,4 @@ debug_enabled = true
 [connection signal="body_entered" from="cop_detect_area" to="." method="_on_cop_detect_area_body_entered"]
 [connection signal="body_exited" from="cop_detect_area" to="." method="_on_cop_detect_area_body_exited"]
 [connection signal="body_entered" from="cop_detect_player" to="." method="_on_cop_detect_player_body_entered"]
+[connection signal="body_exited" from="cop_detect_player" to="." method="_on_cop_detect_player_body_exited"]

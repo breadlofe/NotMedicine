@@ -54,4 +54,11 @@ func _on_cop_detect_area_body_exited(body):
 
 func _on_cop_detect_player_body_entered(body):
 	if body.is_in_group("player_group"):
-		print("GOT YOU >:)")
+		if body.has_method("arrest"):
+			body.arrest(3, $".")
+
+
+func _on_cop_detect_player_body_exited(body):
+	if body.is_in_group("player_group"):
+		if body.has_method("end_arrest"):
+			body.end_arrest($".")

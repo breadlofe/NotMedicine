@@ -112,5 +112,9 @@ size_flags_horizontal = 3
 [node name="ItemTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="ArrestTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="ArrestTimer" to="." method="_on_arrest_timer_timeout"]
