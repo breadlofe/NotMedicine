@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://5johbwli757f"]
+[gd_scene load_steps=9 format=3 uid="uid://5johbwli757f"]
 
 [ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
 [ext_resource type="PackedScene" uid="uid://dl6dow356dkaa" path="res://scenes/patient.tscn" id="2_ltn8d"]
-[ext_resource type="Script" path="res://scenes/button_sequencing.gd" id="4_flcqr"]
+[ext_resource type="Script" path="res://scripts/button_sequencing.gd" id="4_flcqr"]
+[ext_resource type="Texture2D" uid="uid://bfkvmxba3nkk0" path="res://sprites/Button-Up.png" id="5_d63ha"]
+[ext_resource type="Texture2D" uid="uid://d20i8reqlbauj" path="res://sprites/Button-Right.png" id="6_w2vre"]
+[ext_resource type="Texture2D" uid="uid://bl5x14tyg77is" path="res://sprites/Button-Down.png" id="7_wxmy1"]
+[ext_resource type="Texture2D" uid="uid://b8gde2icsappi" path="res://sprites/Button-Left.png" id="8_vf7bv"]
 
 [node name="Game" type="Node"]
 
@@ -23,11 +27,37 @@ scale = Vector2(0.928525, 0.944473)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="worldRoot/player/Camera2D"]
 script = ExtResource("4_flcqr")
+textures = Array[CompressedTexture2D]([ExtResource("5_d63ha"), ExtResource("6_w2vre"), ExtResource("7_wxmy1"), ExtResource("8_vf7bv")])
 
-[node name="ColorRect" type="ColorRect" parent="worldRoot/player/Camera2D/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
+[node name="HBoxContainer" type="HBoxContainer" parent="worldRoot/player/Camera2D/CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -148.0
+offset_right = 250.0
+offset_bottom = -48.0
 grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="worldRoot/player/Camera2D/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="worldRoot/player/Camera2D/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect3" type="TextureRect" parent="worldRoot/player/Camera2D/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect4" type="TextureRect" parent="worldRoot/player/Camera2D/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect5" type="TextureRect" parent="worldRoot/player/Camera2D/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
