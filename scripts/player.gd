@@ -24,6 +24,11 @@ func get_input():
 		velocity = input_direction * speed * 2
 	else:
 		velocity = input_direction * speed
+	
+
+	if(input_direction.length() > 0):
+		rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
+
 
 	
 	if item_active:

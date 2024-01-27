@@ -16,6 +16,8 @@ func _ready():
 
 func _physics_process(delta):
 	if state == "patrol":
+		if(nav_agent.is_navigation_finished()):
+			return
 		if position.distance_to(target_position) > 0.5:
 			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
 			move_and_slide()
@@ -42,18 +44,16 @@ func _on_cop_detect_area_body_exited(body):
 	if body.is_in_group("player_group"):
 		last_position = player.position
 		last_velocity = player.velocity
-		target_position = player.position
-		update_target_position(target_position)
+		target_position = last_position
 		player = null
 		state = "patrol"
-		#target_position = node_positions[randi() % node_positions.size()].position
-		#update_target_position(target_position)
 		#var current_mark: Vector2 = node_positions[0].position
 		#for i in node_positions:
 			#var temp: float = abs(last_position - i.position).length()
 			#if temp < abs(current_mark - last_position).length():
 				#current_mark = i.position
-		
+		target_position = node_positions[randi() % node_positions.size()].position
+		update_target_position(target_position)
 
 func _on_cop_detect_player_body_entered(body):
 	if body.is_in_group("player_group"):

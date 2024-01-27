@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_1jpm0"]
 [ext_resource type="PackedScene" uid="uid://08jh4ff1bvyj" path="res://scenes/cop.tscn" id="1_ggppy"]
 [ext_resource type="PackedScene" uid="uid://s5onyip10cg6" path="res://scenes/wall_test.tscn" id="3_5wv2p"]
-[ext_resource type="PackedScene" uid="uid://bu4hqsldx0pu8" path="res://scenes/invincibility_item.tscn" id="4_8mnuw"]
+[ext_resource type="PackedScene" uid="uid://bhmljpdrnf1cf" path="res://scenes/invincibility_item.tscn" id="4_8mnuw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ojki4"]
 vertices = PackedVector2Array(1057, 353, 1119, 33, 1119, 607, 1056, 545, 1056, 415, 1057, 159, 33, 607, 286, 545, 225, 545, 95, 545, 33, 33, 95, 95, 225, 95, 927, 353, 417, 415, 417, 287, 927, 225, 286, 225, 287, 287, 1056, 159, 1056, 95, 287, 415, 286, 415, 286, 95)
