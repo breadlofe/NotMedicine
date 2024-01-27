@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dpf3gjlyo62kr"]
 
-[ext_resource type="Texture2D" uid="uid://condv6rc4llsh" path="res://sprites/test_sprite.png" id="1_r6pkg"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w2ykl"]
+[ext_resource type="Texture2D" uid="uid://br3f6e8ukjjcs" path="res://sprites/Character_Clown (1).png" id="2_1wopn"]
 [ext_resource type="Script" path="res://scripts/button_sequencing.gd" id="3_c7vpa"]
 [ext_resource type="Texture2D" uid="uid://cf2isyqy3ry1s" path="res://sprites/ItemBox.png" id="3_vkhe8"]
 [ext_resource type="Texture2D" uid="uid://bfkvmxba3nkk0" path="res://sprites/Button-Up.png" id="4_l4hw6"]
@@ -9,8 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bl5x14tyg77is" path="res://sprites/Button-Down.png" id="6_4te4d"]
 [ext_resource type="Texture2D" uid="uid://b8gde2icsappi" path="res://sprites/Button-Left.png" id="7_3oapi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s43a1"]
-size = Vector2(19, 23)
+[sub_resource type="CircleShape2D" id="CircleShape2D_68b5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a2uso"]
 
@@ -25,12 +24,10 @@ collision_mask = 17
 script = ExtResource("1_w2ykl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_r6pkg")
-hframes = 6
+texture = ExtResource("2_1wopn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 4.5)
-shape = SubResource("RectangleShape2D_s43a1")
+shape = SubResource("CircleShape2D_68b5w")
 
 [node name="Area2D" type="Area2D" parent="."]
 
