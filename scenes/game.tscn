@@ -1,5 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://5johbwli757f"]
 
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2uf12"]
 [ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
 [ext_resource type="PackedScene" uid="uid://dl6dow356dkaa" path="res://scenes/patient.tscn" id="2_ltn8d"]
@@ -8,6 +9,7 @@
 [node name="Game" type="Node"]
 
 [node name="worldRoot" type="Node2D" parent="."]
+script = ExtResource("1_2uf12")
 
 [node name="floor1" parent="worldRoot" instance=ExtResource("1_jyq01")]
 position = Vector2(-480, -96)

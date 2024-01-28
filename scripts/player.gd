@@ -12,6 +12,7 @@ var current_patients: Array[Node]
 var cops_arresting_player: Array[Node]
 
 @onready var timer = $ItemTimer as Timer
+@onready var pause_menu = $Camera2D/MenuHUD/PauseMenu
 
 func _init():
 	SignalBus.connect("on_pickup", pickup_handler)
