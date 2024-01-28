@@ -65,6 +65,7 @@ menu={
 2d_physics/layer_3="Patients"
 2d_physics/layer_4="cop"
 2d_physics/layer_5="Layer 5"
+2d_physics/layer_16="Beds"
 
 [rendering]
 

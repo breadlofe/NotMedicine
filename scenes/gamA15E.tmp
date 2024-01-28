@@ -135,6 +135,8 @@ position = Vector2(2384, 3056)
 
 [node name="player" parent="worldRoot" instance=ExtResource("1_l5aeu")]
 position = Vector2(-296, 872)
+speed = null
+horn_stun_time = null
 
 [node name="Sprite2D" parent="worldRoot" instance=ExtResource("6_2w1kv")]
 position = Vector2(-322, 1004)
