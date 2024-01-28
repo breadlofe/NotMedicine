@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://de5uj83eq84et" path="res://sprites/Character_Police-Sheet.png" id="2_0y73i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w42jr"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_owct5"]
 radius = 350.0
