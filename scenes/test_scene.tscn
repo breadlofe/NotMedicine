@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_1jpm0"]
 [ext_resource type="PackedScene" uid="uid://08jh4ff1bvyj" path="res://scenes/cop.tscn" id="1_ggppy"]
 [ext_resource type="PackedScene" uid="uid://s5onyip10cg6" path="res://scenes/wall_test.tscn" id="3_5wv2p"]
-[ext_resource type="PackedScene" uid="uid://bhmljpdrnf1cf" path="res://scenes/invincibility_item.tscn" id="4_8mnuw"]
+[ext_resource type="PackedScene" uid="uid://b2ry3d0mgvawo" path="res://scenes/horn.tscn" id="4_wu02n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ojki4"]
 vertices = PackedVector2Array(1057, 353, 1119, 33, 1119, 607, 1056, 545, 1056, 415, 1057, 159, 33, 607, 286, 545, 225, 545, 95, 545, 33, 33, 95, 95, 225, 95, 927, 353, 417, 415, 417, 287, 927, 225, 286, 225, 287, 287, 1056, 159, 1056, 95, 287, 415, 286, 415, 286, 95)
@@ -42,46 +42,46 @@ scale = Vector2(0.59, 3.38568)
 position = Vector2(960, 192)
 scale = Vector2(0.590991, 0.615)
 
-[node name="PositionNodes" type="Node2D" parent="."]
+[node name="positionNodes" type="Node2D" parent="."]
 
-[node name="Pos1" type="Marker2D" parent="PositionNodes"]
+[node name="Pos1" type="Marker2D" parent="positionNodes"]
 position = Vector2(72, 568)
 
-[node name="Pos2" type="Marker2D" parent="PositionNodes"]
+[node name="Pos2" type="Marker2D" parent="positionNodes"]
 position = Vector2(72, 72)
 
-[node name="Pos3" type="Marker2D" parent="PositionNodes"]
+[node name="Pos3" type="Marker2D" parent="positionNodes"]
 position = Vector2(256, 72)
 
-[node name="Pos4" type="Marker2D" parent="PositionNodes"]
+[node name="Pos4" type="Marker2D" parent="positionNodes"]
 position = Vector2(1080, 72)
 
-[node name="Pos5" type="Marker2D" parent="PositionNodes"]
+[node name="Pos5" type="Marker2D" parent="positionNodes"]
 position = Vector2(1080, 384)
 
-[node name="Pos6" type="Marker2D" parent="PositionNodes"]
+[node name="Pos6" type="Marker2D" parent="positionNodes"]
 position = Vector2(896, 384)
 
-[node name="Pos7" type="Marker2D" parent="PositionNodes"]
+[node name="Pos7" type="Marker2D" parent="positionNodes"]
 position = Vector2(896, 256)
 
-[node name="Pos8" type="Marker2D" parent="PositionNodes"]
+[node name="Pos8" type="Marker2D" parent="positionNodes"]
 position = Vector2(448, 384)
 
-[node name="Pos9" type="Marker2D" parent="PositionNodes"]
+[node name="Pos9" type="Marker2D" parent="positionNodes"]
 position = Vector2(448, 256)
 
-[node name="Pos10" type="Marker2D" parent="PositionNodes"]
+[node name="Pos10" type="Marker2D" parent="positionNodes"]
 position = Vector2(256, 256)
 
-[node name="Pos11" type="Marker2D" parent="PositionNodes"]
+[node name="Pos11" type="Marker2D" parent="positionNodes"]
 position = Vector2(256, 568)
 
-[node name="Pos12" type="Marker2D" parent="PositionNodes"]
+[node name="Pos12" type="Marker2D" parent="positionNodes"]
 position = Vector2(1080, 568)
 
 [node name="cop" parent="." instance=ExtResource("1_ggppy")]
 position = Vector2(1010, 587)
 
-[node name="Sprite2D" parent="." instance=ExtResource("4_8mnuw")]
-position = Vector2(640, 320)
+[node name="Sprite2D" parent="." instance=ExtResource("4_wu02n")]
+position = Vector2(629, 314)
