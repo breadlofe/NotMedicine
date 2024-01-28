@@ -78,6 +78,7 @@ hframes = 4
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 35.0
+debug_enabled = true
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true

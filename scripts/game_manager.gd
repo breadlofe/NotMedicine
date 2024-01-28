@@ -15,6 +15,7 @@ func _process(delta):
 
 func toggle_pause():
 	if paused:
+		MusicManager.play_song(MusicManager.Game)
 		pause_menu.hide()
 		get_tree().paused = false
 	else:
