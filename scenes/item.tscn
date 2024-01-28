@@ -6,6 +6,7 @@
 radius = 24.63
 
 [node name="Sprite2D" type="Sprite2D" groups=["item_group"]]
+z_index = 10
 texture = ExtResource("1_c7hj1")
 
 [node name="Area2D" type="Area2D" parent="." groups=["item_group"]]

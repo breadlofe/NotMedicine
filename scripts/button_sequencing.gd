@@ -76,6 +76,20 @@ func apply_rewards():
 	player.adjust_score(5)
 	particle_emission(current_patient.global_position, current_patient.global_rotation, 1)
 	clear_textures()
+	
+	# Spawn Powerups
+	player.total_cures += 1
+	if player.total_cures % player.cures_till_powerup == 0:
+		var p_spawners = get_tree().get_nodes_in_group("powerup_spawners")
+		var closest_spawner = null
+		var shortest_dist = INF
+		for spawner in p_spawners:
+			var dist_to = player.position.distance_to(spawner.position)
+			if dist_to < shortest_dist and spawner.get_child_count() == 0:
+				closest_spawner = spawner
+				shortest_dist = dist_to
+		if closest_spawner:
+			closest_spawner.spawn_powerup()
 
 func apply_consequences():
 	is_active = false

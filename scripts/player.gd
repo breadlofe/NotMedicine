@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 @export var horn_stun_time : int = 4
+@export var cures_till_powerup : int = 3
 
 var item_active = false
 var has_item = false
@@ -13,6 +14,7 @@ var in_patient_area = 0
 var current_patients: Array[Node]
 var cops_arresting_player: Array[Node]
 var score : int = 0
+var total_cures : int = 0
 
 @onready var timer = $ItemTimer as Timer
 @onready var pause_menu = $Camera2D/MenuHUD/PauseMenu
@@ -24,6 +26,9 @@ var score : int = 0
 func _init():
 	SignalBus.connect("on_pickup", pickup_handler)
 	
+func _ready():
+	$RayCast2D.hit_from_inside = true
+
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -56,12 +61,12 @@ func get_input():
 			#var smallest_angle : float = 400
 			#var look_vector = Vector2(-transform.x.y, transform.x.x)
 			#for patient in current_patients:
-		#		var vec_from_player = (patient.position - position).normalized()
-		#		var dot = vec_from_player.dot(look_vector)
-		#		var angle_between = abs(rad_to_deg(acos(dot)))
-		#		if angle_between < smallest_angle or smallest_angle == 400:
-		#			patient_to_cure = patient
-		#			smallest_angle = angle_between
+			#	var vec_from_player = (patient.position - position).normalized()
+			#	var dot = vec_from_player.dot(look_vector)
+			#	var angle_between = abs(rad_to_deg(acos(dot)))
+			#	if angle_between < smallest_angle or smallest_angle == 400:
+			#		patient_to_cure = patient
+			#		smallest_angle = angle_between
 			
 			
 			var node = get_closest_patient()
@@ -103,6 +108,7 @@ func get_closest_patient():
 	if shortest_node:
 		shortest_node = shortest_node.get_parent()
 		current_patients.erase(shortest_node)
+	print(shortest_node)
 	return shortest_node
 
 
@@ -111,6 +117,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta):
+
 	if len(cops_arresting_player) <= 0:
 		$ArrestTimer.stop()
 

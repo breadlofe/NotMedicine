@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://5johbwli757f"]
+[gd_scene load_steps=8 format=3 uid="uid://5johbwli757f"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2uf12"]
 [ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
-[ext_resource type="PackedScene" path="res://scenes/coat_item.tscn" id="6_2w1kv"]
+[ext_resource type="PackedScene" uid="uid://jyh4356c16rw" path="res://scenes/coat_item.tscn" id="6_2w1kv"]
 [ext_resource type="PackedScene" uid="uid://cptmdfs0olo5j" path="res://scenes/characters/doctor.tscn" id="6_ebi71"]
 [ext_resource type="PackedScene" uid="uid://c2xffi0qm2gex" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
+[ext_resource type="PackedScene" uid="uid://dskvvi8g4e3oy" path="res://scenes/powerup_spawner.tscn" id="7_vbsmq"]
 
 [node name="Game" type="Node"]
 
@@ -19,6 +20,7 @@ position = Vector2(-480, -96)
 position = Vector2(-296, 872)
 
 [node name="Sprite2D" parent="worldRoot" instance=ExtResource("6_2w1kv")]
+z_index = 0
 position = Vector2(-322, 1004)
 
 [node name="positionNodes" type="Node2D" parent="worldRoot"]
@@ -285,5 +287,40 @@ patrol_point_group = "node_8"
 [node name="doctor9" parent="worldRoot" instance=ExtResource("6_ebi71")]
 position = Vector2(2480, 2800)
 patrol_point_group = "node_9"
+
+[node name="powerup_spawners" type="Node2D" parent="worldRoot"]
+
+[node name="PowerupSpawner" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(219, 1195)
+
+[node name="PowerupSpawner2" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(796, 1735)
+
+[node name="PowerupSpawner3" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(1943, 1185)
+
+[node name="PowerupSpawner4" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(1131, 2737)
+
+[node name="PowerupSpawner5" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(-203, 3001)
+
+[node name="PowerupSpawner6" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(-330, 283)
+
+[node name="PowerupSpawner7" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(2522, 484)
+
+[node name="PowerupSpawner8" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(537, 610)
+
+[node name="PowerupSpawner9" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(1057, 847)
+
+[node name="PowerupSpawner10" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(546, 2132)
+
+[node name="PowerupSpawner11" parent="worldRoot/powerup_spawners" instance=ExtResource("7_vbsmq")]
+position = Vector2(1915, 2139)
 
 [editable path="worldRoot/floor1"]
