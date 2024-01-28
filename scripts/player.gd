@@ -132,7 +132,11 @@ func use_superstar():
 	
 	timer.wait_time = 5
 	timer.start()
+	
+	var prev = MusicManager.stream
+	MusicManager.play_song(MusicManager.Syringe)
 	await timer.timeout
+	MusicManager.play_song(prev)
 	has_item = false
 	superstar_active = false
 	item_active = false
