@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpf3gjlyo62kr"]
+[gd_scene load_steps=15 format=3 uid="uid://dpf3gjlyo62kr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w2ykl"]
 [ext_resource type="Texture2D" uid="uid://br3f6e8ukjjcs" path="res://sprites/Character_Clown (1).png" id="2_1wopn"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bl5x14tyg77is" path="res://sprites/Button-Down.png" id="6_4te4d"]
 [ext_resource type="Texture2D" uid="uid://b8gde2icsappi" path="res://sprites/Button-Left.png" id="7_3oapi"]
 [ext_resource type="PackedScene" uid="uid://3qdx8cier013" path="res://scenes/UI/pause_menu.tscn" id="9_pkpjy"]
+[ext_resource type="PackedScene" uid="uid://lddrjit7xlkj" path="res://scenes/blood_splat.tscn" id="10_kkexb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_68b5w"]
 
@@ -76,6 +77,7 @@ show_percentage = false
 [node name="InputSequenceHUD" type="CanvasLayer" parent="Camera2D"]
 script = ExtResource("3_c7vpa")
 textures = Array[CompressedTexture2D]([ExtResource("4_l4hw6"), ExtResource("5_qaka3"), ExtResource("6_4te4d"), ExtResource("7_3oapi")])
+deathParticle = ExtResource("10_kkexb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/InputSequenceHUD"]
 anchors_preset = 7
