@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://blpilnjcs658s"]
+
+[ext_resource type="Script" path="res://scripts/confetti_explosion.gd" id="1_acrxh"]
+[ext_resource type="Material" uid="uid://c21row55pyiwi" path="res://particles/success_process_material.tres" id="1_qflnv"]
+[ext_resource type="Material" uid="uid://1o7flsm3kofh" path="res://particles/haha_particle_material.tres" id="3_2no6r"]
+[ext_resource type="Texture2D" uid="uid://uao54drmta1m" path="res://sprites/haha.png" id="4_eov33"]
+
+[node name="confetti_explosion" type="GPUParticles2D"]
+amount = 400
+process_material = ExtResource("1_qflnv")
+lifetime = 3.0
+explosiveness = 0.9
+randomness = 1.0
+script = ExtResource("1_acrxh")
+
+[node name="laughing" type="GPUParticles2D" parent="."]
+amount = 25
+process_material = ExtResource("3_2no6r")
+texture = ExtResource("4_eov33")
+lifetime = 2.0
+randomness = 0.51
