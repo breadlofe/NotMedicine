@@ -149,6 +149,8 @@ func use_horn():
 	has_item = false
 	
 	SignalBus.on_horn_fired.emit(horn_stun_time)
+	var horn_sound = $airhorn_sound as AudioStreamPlayer
+	horn_sound.play()
 	timer.wait_time = horn_stun_time
 	timer.start()
 	
