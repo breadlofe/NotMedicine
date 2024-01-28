@@ -19,7 +19,7 @@ func spawn_patient():
 	$"../../../".add_child.call_deferred(patient)
 
 
-func on_patient_cured():
+func on_patient_removed():
 	spawn_timer.start()
 
 
