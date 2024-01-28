@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal cop_is_spawning
 @export var textures: Array[CompressedTexture2D]
 
 # Packed scene for particle emissions.
@@ -30,8 +31,7 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and not event.is_echo():
 			var keycode = input_sequence.pop_front()
-
-			if(keycode != event.keycode):
+			if (keycode != event.keycode):
 				apply_consequences()
 			else:
 				var icon = input_texture_rects_left.pop_front() as TextureRect
@@ -74,6 +74,7 @@ func apply_consequences():
 		var patient_node = current_patient as Node
 		patient_node.queue_free()
 	clear_textures()
+	SignalBus.cop_is_spawning.emit()
 	
 func clear_textures():
 	for icon in $HBoxContainer.get_children():
