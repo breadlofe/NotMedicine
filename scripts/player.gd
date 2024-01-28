@@ -52,7 +52,18 @@ func get_input():
 	var interact_input = Input.is_action_just_pressed("interact")
 	if(interact_input):
 		if in_patient_area > 0:
-			SignalBus.on_player_attempt_funny.emit(current_patients.pop_back())
+			var patient_to_cure = null
+			var smallest_angle : float = 400
+			var look_vector = Vector2(-transform.x.y, transform.x.x)
+			for patient in current_patients:
+				var vec_from_player = (patient.position - position).normalized()
+				var dot = vec_from_player.dot(look_vector)
+				var angle_between = abs(rad_to_deg(acos(dot)))
+				if angle_between < smallest_angle or smallest_angle == 400:
+					patient_to_cure = patient
+					smallest_angle = angle_between
+			SignalBus.on_player_attempt_funny.emit(patient_to_cure)
+			current_patients.erase(patient_to_cure)
 		elif has_item and not item_active:
 			match current_item:
 				ItemTypes.ItemTypes.SUPERSTAR:
