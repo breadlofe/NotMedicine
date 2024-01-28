@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dpf3gjlyo62kr"]
+[gd_scene load_steps=25 format=3 uid="uid://dpf3gjlyo62kr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w2ykl"]
 [ext_resource type="PackedScene" path="res://LoopingSFX.tscn" id="2_3hylq"]
@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bl5x14tyg77is" path="res://sprites/Button-Down.png" id="6_4te4d"]
 [ext_resource type="Texture2D" uid="uid://b8gde2icsappi" path="res://sprites/Button-Left.png" id="7_3oapi"]
 [ext_resource type="PackedScene" uid="uid://3qdx8cier013" path="res://scenes/UI/pause_menu.tscn" id="9_pkpjy"]
-[ext_resource type="PackedScene" uid="uid://c3r651ft7v6jb" path="res://scenes/blood_splat_CPU.tscn" id="10_d1wdc"]
+[ext_resource type="PackedScene" path="res://scenes/blood_splat_CPU.tscn" id="10_d1wdc"]
 [ext_resource type="AudioStream" uid="uid://dn5yab2vcaosp" path="res://sfx/720893__baggonotes__incorrect_buzz.wav" id="10_viydv"]
 [ext_resource type="PackedScene" uid="uid://csm2jbim7qrv0" path="res://scenes/confetti_for_kyle.tscn" id="11_b7tv5"]
+[ext_resource type="AudioStream" uid="uid://c31vwgm4c6nqv" path="res://sfx/436168__dersuperanton__laughing-mouse-squirrel-cartoon.wav" id="13_0ne66"]
+[ext_resource type="AudioStream" uid="uid://ko16vgnh4bjp" path="res://sfx/463817__se2001__chipmunk-laugh.mp3" id="14_qlm2d"]
+[ext_resource type="AudioStream" uid="uid://bvi0o0ltdbf3a" path="res://sfx/131930__mcpable__industrial-air-horn.wav" id="16_xyfg2"]
 
 [sub_resource type="Animation" id="Animation_oyrtf"]
 length = 0.001
@@ -80,7 +83,6 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_bw6sk")
 }
-speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_68b5w")
@@ -182,6 +184,12 @@ size_flags_horizontal = 3
 [node name="Failure" type="AudioStreamPlayer" parent="Camera2D/InputSequenceHUD"]
 stream = ExtResource("10_viydv")
 
+[node name="Reward1" type="AudioStreamPlayer" parent="Camera2D/InputSequenceHUD"]
+stream = ExtResource("13_0ne66")
+
+[node name="Reward2" type="AudioStreamPlayer" parent="Camera2D/InputSequenceHUD"]
+stream = ExtResource("14_qlm2d")
+
 [node name="MenuHUD" type="CanvasLayer" parent="Camera2D"]
 
 [node name="PauseMenu" parent="Camera2D/MenuHUD" instance=ExtResource("9_pkpjy")]
@@ -199,6 +207,9 @@ collide_with_areas = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_wxexh")
+
+[node name="airhorn_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_xyfg2")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

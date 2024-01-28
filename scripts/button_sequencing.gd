@@ -71,6 +71,8 @@ func apply_rewards():
 	current_patient.bed.on_patient_removed()
 	var patient_node = current_patient as Node
 	patient_node.queue_free()
+	var reward = [$Reward1 as AudioStreamPlayer, $Reward2 as AudioStreamPlayer]
+	reward.pick_random().play()
 	player.adjust_score(5)
 	particle_emission(current_patient.global_position, current_patient.global_rotation, 1)
 	clear_textures()
