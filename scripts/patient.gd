@@ -2,6 +2,7 @@ extends Sprite2D
 
 var patient_sprite_paths = ["res://sprites/Character_Patient_01.png", "res://sprites/Character_Patient_02.png"]
 var rng = RandomNumberGenerator.new()
+var bed = null
 	
 	
 # Called when the node enters the scene tree for the first time.

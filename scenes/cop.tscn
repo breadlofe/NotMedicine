@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://08jh4ff1bvyj"]
+[gd_scene load_steps=9 format=3 uid="uid://08jh4ff1bvyj"]
 
 [ext_resource type="Script" path="res://scripts/cop.gd" id="1_j83oe"]
-[ext_resource type="Texture2D" uid="uid://d4n0oceg27fu0" path="res://icon.svg" id="2_2j7wa"]
+[ext_resource type="Texture2D" uid="uid://de5uj83eq84et" path="res://sprites/Character_Police-Sheet.png" id="2_0y73i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w42jr"]
 size = Vector2(32, 32)
@@ -11,6 +11,43 @@ radius = 350.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1wds"]
 size = Vector2(64, 64)
+
+[sub_resource type="Animation" id="Animation_iumet"]
+resource_name = "walk_animation"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_5laq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgbgg"]
+_data = {
+"RESET": SubResource("Animation_5laq5"),
+"walk_animation": SubResource("Animation_iumet")
+}
 
 [node name="cop" type="CharacterBody2D"]
 script = ExtResource("1_j83oe")
@@ -30,14 +67,20 @@ shape = SubResource("RectangleShape2D_i1wds")
 
 [node name="cop_sprite" type="Sprite2D" parent="."]
 position = Vector2(-7.15256e-07, -7.15256e-07)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_2j7wa")
+texture = ExtResource("2_0y73i")
+hframes = 4
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 35.0
 debug_enabled = true
 
 [node name="StunTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../cop_sprite")
+libraries = {
+"": SubResource("AnimationLibrary_kgbgg")
+}
 
 [connection signal="body_entered" from="cop_detect_area" to="." method="_on_cop_detect_area_body_entered"]
 [connection signal="body_exited" from="cop_detect_area" to="." method="_on_cop_detect_area_body_exited"]

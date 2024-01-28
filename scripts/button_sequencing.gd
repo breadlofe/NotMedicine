@@ -1,10 +1,13 @@
 extends CanvasLayer
 
 signal cop_is_spawning
-@export var textures: Array[CompressedTexture2D]
 
+@onready var player = $"../../"
+
+@export var textures: Array[CompressedTexture2D]
 # Packed scene for particle emissions.
 @export var deathParticle: PackedScene
+@export var funnyParticle: PackedScene
 
 var is_active: bool = false
 var input_sequence: Array[int]
@@ -65,16 +68,22 @@ func select_random() -> Texture2D:
 
 func apply_rewards():
 	is_active = false
+	current_patient.bed.on_patient_cured()
+	var patient_node = current_patient as Node
+	patient_node.queue_free()
+	player.adjust_score(5)
+	particle_emission(current_patient.global_position, current_patient.global_rotation, 1)
 	clear_textures()
 
 func apply_consequences():
 	is_active = false
 	if current_patient:
-		explode_blood(current_patient.global_position, current_patient.global_rotation)
+		particle_emission(current_patient.global_position, current_patient.global_rotation, 0)
 		var patient_node = current_patient as Node
 		patient_node.queue_free()
 	var failure = $Failure as AudioStreamPlayer
 	failure.play()
+	player.adjust_score(-10)
 	clear_textures()
 	SignalBus.cop_is_spawning.emit()
 	
@@ -84,9 +93,11 @@ func clear_textures():
 			icon_tex_rect.texture = null
 
 # Function to be called to spawn one-time emission of blood splat.			
-func explode_blood(patient_pos, patient_rot):
-	var blood_particle = deathParticle.instantiate()
-	blood_particle.position = patient_pos
-	blood_particle.rotation = patient_rot
-	blood_particle.emitting = true 
-	get_tree().current_scene.add_child(blood_particle)
+func particle_emission(patient_pos, patient_rot, type):
+	var particle = funnyParticle.instantiate()
+	if type == 0:
+		particle = deathParticle.instantiate()
+	particle.position = patient_pos
+	particle.rotation = patient_rot
+	particle.emitting = true 
+	get_tree().current_scene.add_child(particle)

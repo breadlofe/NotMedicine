@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3r651ft7v6jb"]
+
+[ext_resource type="Script" path="res://scripts/blood_splat_CPU.gd" id="1_0r7ea"]
+[ext_resource type="Texture2D" uid="uid://5kwab24vpjxk" path="res://sprites/bone.png" id="2_xmum5"]
+
+[sub_resource type="Curve" id="Curve_v8tqa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.997143, 0.018868), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_cj61q"]
+colors = PackedColorArray(0.748885, 0, 0, 1, 0.905273, 0, 0, 0.811765)
+
+[sub_resource type="Curve" id="Curve_3jwak"]
+min_value = -180.0
+max_value = 0.0
+_data = [Vector2(0, -9.50946), 0.0, 0.0, 0, 0, Vector2(1, -161.66), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="blood_for_kyle" type="CPUParticles2D"]
+emitting = false
+amount = 200
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+lifetime_randomness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 200.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_v8tqa")
+color_ramp = SubResource("Gradient_cj61q")
+hue_variation_max = 1.0
+script = ExtResource("1_0r7ea")
+
+[node name="get_boned" type="CPUParticles2D" parent="."]
+amount = 4
+explosiveness = 1.0
+randomness = 0.5
+texture = ExtResource("2_xmum5")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+angle_max = 5.0
+angle_curve = SubResource("Curve_3jwak")
+scale_amount_max = 1.2
