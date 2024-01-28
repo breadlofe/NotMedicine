@@ -65,6 +65,9 @@ func select_random() -> Texture2D:
 
 func apply_rewards():
 	is_active = false
+	current_patient.bed.on_patient_cured()
+	var patient_node = current_patient as Node
+	patient_node.queue_free()
 	clear_textures()
 
 func apply_consequences():
