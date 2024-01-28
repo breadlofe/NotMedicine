@@ -43,7 +43,6 @@ func _process(delta):
 					update_target_position(target_position)
 			elif result.is_in_group("tile_group"):
 				state = "patrol"
-	print(state)
 	if state == "patrol":
 		if not nav_agent.is_target_reached():
 			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
