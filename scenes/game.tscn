@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cptmdfs0olo5j" path="res://scenes/characters/doctor.tscn" id="6_ebi71"]
 [ext_resource type="PackedScene" uid="uid://c2xffi0qm2gex" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
 [ext_resource type="PackedScene" uid="uid://dskvvi8g4e3oy" path="res://scenes/powerup_spawner.tscn" id="7_vbsmq"]
+[ext_resource type="PackedScene" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
 
 [node name="Game" type="Node"]
 
