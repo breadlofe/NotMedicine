@@ -68,7 +68,7 @@ func select_random() -> Texture2D:
 
 func apply_rewards():
 	is_active = false
-	current_patient.bed.on_patient_cured()
+	current_patient.bed.on_patient_removed()
 	var patient_node = current_patient as Node
 	patient_node.queue_free()
 	player.adjust_score(5)
@@ -77,6 +77,7 @@ func apply_rewards():
 
 func apply_consequences():
 	is_active = false
+	current_patient.bed.on_patient_removed()
 	if current_patient:
 		particle_emission(current_patient.global_position, current_patient.global_rotation, 0)
 		var patient_node = current_patient as Node

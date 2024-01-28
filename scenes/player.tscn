@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpf3gjlyo62kr"]
+[gd_scene load_steps=22 format=3 uid="uid://dpf3gjlyo62kr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_w2ykl"]
 [ext_resource type="PackedScene" path="res://LoopingSFX.tscn" id="2_3hylq"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bl5x14tyg77is" path="res://sprites/Button-Down.png" id="6_4te4d"]
 [ext_resource type="Texture2D" uid="uid://b8gde2icsappi" path="res://sprites/Button-Left.png" id="7_3oapi"]
 [ext_resource type="PackedScene" uid="uid://3qdx8cier013" path="res://scenes/UI/pause_menu.tscn" id="9_pkpjy"]
-[ext_resource type="PackedScene" path="res://scenes/blood_splat_CPU.tscn" id="10_d1wdc"]
+[ext_resource type="PackedScene" uid="uid://c3r651ft7v6jb" path="res://scenes/blood_splat_CPU.tscn" id="10_d1wdc"]
 [ext_resource type="AudioStream" uid="uid://dn5yab2vcaosp" path="res://sfx/720893__baggonotes__incorrect_buzz.wav" id="10_viydv"]
 [ext_resource type="PackedScene" uid="uid://csm2jbim7qrv0" path="res://scenes/confetti_for_kyle.tscn" id="11_b7tv5"]
 
@@ -60,6 +60,9 @@ bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwfxm"]
 bg_color = Color(0.6, 0.6, 0.6, 0.356863)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wxexh"]
+polygon = PackedVector2Array(-9, -3, -12, -2, -12, 2, -10, 3, -6, 3, -2, 7, 0, 9, 2, 6, 7, 3, 11, 3, 12, 1, 12, -2, 10, -3, 8, -3, 6, -8, 2, -11, -3, -11, -7, -7)
 
 [node name="player" type="CharacterBody2D" groups=["player_group"]]
 collision_layer = 2
@@ -192,6 +195,9 @@ one_shot = true
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 5
 collide_with_areas = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_wxexh")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
