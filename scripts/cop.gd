@@ -13,7 +13,7 @@ var player: CharacterBody2D = null
 var node_positions: Array
 
 func _ready():
-	position_nodes = $"../positionNodes".get_children()
+	position_nodes = $"../../positionNodes".get_children()
 	target_position = position_nodes[randi() % position_nodes.size()].position
 	update_target_position(target_position)
 	SignalBus.on_horn_fired.connect(on_stun)
