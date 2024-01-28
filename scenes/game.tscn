@@ -206,6 +206,50 @@ position = Vector2(-304, 1840)
 [node name="Marker2D4" type="Marker2D" parent="worldRoot/doctor_positions/doctor_5" groups=["node_5"]]
 position = Vector2(-352, 2576)
 
+[node name="doctor_6" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_6" groups=["node_6"]]
+position = Vector2(2448, 176)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_6" groups=["node_6"]]
+position = Vector2(2352, 1744)
+
+[node name="doctor_7" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_7" groups=["node_7"]]
+position = Vector2(304, 2544)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_7" groups=["node_7"]]
+position = Vector2(1008, 2544)
+
+[node name="Marker2D3" type="Marker2D" parent="worldRoot/doctor_positions/doctor_7" groups=["node_7"]]
+position = Vector2(1584, 2544)
+
+[node name="Marker2D4" type="Marker2D" parent="worldRoot/doctor_positions/doctor_7" groups=["node_7"]]
+position = Vector2(2160, 2544)
+
+[node name="doctor_8" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_8" groups=["node_8"]]
+position = Vector2(-304, 2960)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_8" groups=["node_8"]]
+position = Vector2(272, 2896)
+
+[node name="Marker2D3" type="Marker2D" parent="worldRoot/doctor_positions/doctor_8" groups=["node_8"]]
+position = Vector2(912, 2896)
+
+[node name="Marker2D4" type="Marker2D" parent="worldRoot/doctor_positions/doctor_8" groups=["node_8"]]
+position = Vector2(1488, 2896)
+
+[node name="doctor_9" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_9" groups=["node_9"]]
+position = Vector2(2544, 2672)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_9" groups=["node_9"]]
+position = Vector2(2544, 2960)
+
 [node name="doctor" parent="worldRoot" instance=ExtResource("6_ebi71")]
 position = Vector2(336, 400)
 patrol_point_group = "node_1"
@@ -225,5 +269,21 @@ patrol_point_group = "node_4"
 [node name="doctor5" parent="worldRoot" instance=ExtResource("6_ebi71")]
 position = Vector2(-208, 1456)
 patrol_point_group = "node_5"
+
+[node name="doctor6" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(2352, 1040)
+patrol_point_group = "node_6"
+
+[node name="doctor7" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(80, 2416)
+patrol_point_group = "node_7"
+
+[node name="doctor8" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(16, 2896)
+patrol_point_group = "node_8"
+
+[node name="doctor9" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(2480, 2800)
+patrol_point_group = "node_9"
 
 [editable path="worldRoot/floor1"]
