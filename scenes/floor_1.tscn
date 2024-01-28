@@ -53,262 +53,333 @@ navigation_polygon = SubResource("NavigationPolygon_tnla6")
 
 [node name="bed" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(48, 40)
+collision_layer = 32768
 
 [node name="bed2" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(208, 40)
+collision_layer = 32768
 
 [node name="bed3" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(40, 560)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed4" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(40, 432)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed5" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(40, 304)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed6" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(128, 40)
+collision_layer = 32768
 
 [node name="bed7" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(48, 1416)
+collision_layer = 32768
 
 [node name="bed8" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(208, 1416)
+collision_layer = 32768
 
 [node name="bed9" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(40, 1968)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed10" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(40, 2096)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed11" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(48, 2840)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed12" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(208, 2840)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed13" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(40, 2288)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed14" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(48, 2960)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed15" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(48, 3152)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed16" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1176, 2944)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed17" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1176, 3040)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed18" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(464, 2408)
+collision_layer = 32768
 
 [node name="bed19" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(848, 2408)
+collision_layer = 32768
 
 [node name="bed20" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(976, 2408)
+collision_layer = 32768
 
 [node name="bed21" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1552, 2408)
+collision_layer = 32768
 
 [node name="bed22" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(640, 2952)
+collision_layer = 32768
 
 [node name="bed23" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1424, 2408)
+collision_layer = 32768
 
 [node name="bed24" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1104, 2408)
+collision_layer = 32768
 
 [node name="bed25" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1680, 2408)
+collision_layer = 32768
 
 [node name="bed26" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2128, 2408)
+collision_layer = 32768
 
 [node name="bed27" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1752, 2944)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed28" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1752, 3040)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed29" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1904, 2408)
+collision_layer = 32768
 
 [node name="bed30" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1856, 2952)
+collision_layer = 32768
 
 [node name="bed31" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2240, 2408)
+collision_layer = 32768
 
 [node name="bed32" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2240, 2712)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed33" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2712, 2720)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed34" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2720, 3032)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed35" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3008, 2632)
+collision_layer = 32768
 
 [node name="bed36" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3168, 3160)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed37" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 1056)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed38" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 2464)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed39" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 1632)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed40" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 1824)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed41" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 2016)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed42" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 1440)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed43" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 1248)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed44" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2184, 1280)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed45" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2648, 1280)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed46" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2648, 1824)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed47" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2072, 1072)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed48" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2072, 1488)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed49" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1264, 1608)
+collision_layer = 32768
 
 [node name="bed50" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1264, 2040)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed51" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1264, 1496)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed52" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1264, 1064)
+collision_layer = 32768
 
 [node name="bed53" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2416, 1064)
+collision_layer = 32768
 
 [node name="bed54" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(456, 2032)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed55" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(456, 1616)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed56" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(912, 1064)
+collision_layer = 32768
 
 [node name="bed57" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1840, 2040)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed58" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1632, 552)
+collision_layer = 32768
 
 [node name="bed59" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1536, 552)
+collision_layer = 32768
 
 [node name="bed60" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1528, 448)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed61" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2744, 816)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed62" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2744, 176)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed63" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(1632, 440)
 rotation = 3.14159
+collision_layer = 32768
 
 [node name="bed64" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(448, 552)
+collision_layer = 32768
 
 [node name="bed65" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(456, 160)
 rotation = -1.5708
+collision_layer = 32768
 
 [node name="bed66" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 304)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed67" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 688)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed68" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 496)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed69" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 880)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed70" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(3160, 112)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="bed71" parent="NavigationRegion2D" instance=ExtResource("3_aiqsb")]
 position = Vector2(2744, 480)
 rotation = 1.5708
+collision_layer = 32768
 
 [node name="TileMap" type="TileMap" parent="NavigationRegion2D"]
 tile_set = SubResource("TileSet_c4e1v")

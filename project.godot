@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://scripts/signal_bus.gd"
 ItemTypes="*res://scripts/item_types.gd"
+MusicManager="*res://music_manager.gd"
 
 [gui]
 
@@ -59,7 +60,12 @@ menu={
 
 [layer_names]
 
+2d_physics/layer_1="environment"
+2d_physics/layer_2="player"
+2d_physics/layer_3="Patients"
+2d_physics/layer_4="cop"
 2d_physics/layer_5="Layer 5"
+2d_physics/layer_16="Beds"
 
 [rendering]
 

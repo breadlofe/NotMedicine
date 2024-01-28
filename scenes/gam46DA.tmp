@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://5johbwli757f"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2uf12"]
+[ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
+[ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
+[ext_resource type="PackedScene" uid="uid://jyh4356c16rw" path="res://scenes/coat_item.tscn" id="6_2w1kv"]
+[ext_resource type="PackedScene" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
+
+[node name="Game" type="Node"]
+
+[node name="worldRoot" type="Node2D" parent="."]
+script = ExtResource("1_2uf12")
+
+[node name="floor1" parent="worldRoot" instance=ExtResource("1_jyq01")]
+position = Vector2(-480, -96)
+
+[node name="positionNodes" type="Node2D" parent="worldRoot"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-400, 848)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-336, 208)
+
+[node name="Marker2D3" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-144, -48)
+
+[node name="Marker2D4" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2384, -48)
+
+[node name="Marker2D5" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2512, 400)
+
+[node name="Marker2D6" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2384, 848)
+
+[node name="Marker2D7" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2000, 784)
+
+[node name="Marker2D8" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2048, 384)
+
+[node name="Marker2D9" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1296, 208)
+
+[node name="Marker2D10" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1296, 592)
+
+[node name="Marker2D11" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(912, 208)
+
+[node name="Marker2D12" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(112, 208)
+
+[node name="Marker2D13" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(112, 592)
+
+[node name="Marker2D14" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(912, 592)
+
+[node name="Marker2D15" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-352, 1504)
+
+[node name="Marker2D16" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-336, 1936)
+
+[node name="Marker2D17" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-80, 2128)
+
+[node name="Marker2D18" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2384, 2128)
+
+[node name="Marker2D19" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2448, 1440)
+
+[node name="Marker2D20" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1968, 1728)
+
+[node name="Marker2D21" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1936, 1184)
+
+[node name="Marker2D22" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1360, 1712)
+
+[node name="Marker2D23" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1360, 1136)
+
+[node name="Marker2D24" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(784, 1136)
+
+[node name="Marker2D25" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(208, 1136)
+
+[node name="Marker2D26" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(208, 1728)
+
+[node name="Marker2D27" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(784, 1712)
+
+[node name="Marker2D28" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-352, 2448)
+
+[node name="Marker2D29" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(176, 2464)
+
+[node name="Marker2D30" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(784, 2464)
+
+[node name="Marker2D31" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1424, 2464)
+
+[node name="Marker2D32" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2000, 2464)
+
+[node name="Marker2D33" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2512, 2368)
+
+[node name="Marker2D34" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2608, 2608)
+
+[node name="Marker2D35" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1776, 2896)
+
+[node name="Marker2D36" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(1040, 2896)
+
+[node name="Marker2D37" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(368, 2896)
+
+[node name="Marker2D38" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(-208, 2960)
+
+[node name="Marker2D39" type="Marker2D" parent="worldRoot/positionNodes"]
+position = Vector2(2384, 3056)
+
+[node name="player" parent="worldRoot" instance=ExtResource("1_l5aeu")]
+position = Vector2(-296, 872)
+
+[node name="Sprite2D" parent="worldRoot" instance=ExtResource("6_2w1kv")]
+position = Vector2(-322, 1004)
+
+[node name="cop_spawn" parent="worldRoot" instance=ExtResource("7_463d7")]
+position = Vector2(-416, 648)
+
+[editable path="worldRoot/floor1"]

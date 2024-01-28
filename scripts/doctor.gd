@@ -11,6 +11,7 @@ enum States {PATROL, CHASE, IDLE, STUNNED}
 @onready var nav_agent = $NavigationAgent2D
 @onready var idle_timer = $IdleTimer
 @onready var stun_timer = $StunTimer
+@onready var _animation_player = $AnimationPlayer
 
 var visibility_color = Color(0.867, 0.91, 0.247, 0.1)
 var target
@@ -34,6 +35,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	queue_redraw()
+	if velocity.normalized().length() > 0.9:
+		_animation_player.play("walk_animation")
+		$doctor_sprite.rotation_degrees = rad_to_deg(atan2(velocity.y, velocity.x)) - 90
+	else:
+		_animation_player.stop()
 	if state == States.PATROL:
 		if target:
 			state = States.CHASE
@@ -94,3 +100,15 @@ func on_stun(stun_time):
 	state = States.STUNNED
 	stun_timer.set_wait_time(stun_time)
 	stun_timer.start()
+
+
+func _on_doctor_arrest_area_body_entered(body):
+	if body.is_in_group("player_group"):
+		if body.has_method("arrest"):
+			body.arrest(3, $".")
+
+
+func _on_doctor_arrest_area_body_exited(body):
+	if body.is_in_group("player_group"):
+		if body.has_method("end_arrest"):
+			body.end_arrest($".")

@@ -39,7 +39,7 @@ func get_input():
 	if(input_direction.length() > 0):
 		$Footsteps.start_loop()
 		_animation_player.play("walk_animation")
-		rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
+		$Sprite2D.rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
 	else:
 		_animation_player.stop()
 		$Footsteps.stop_loop()
@@ -73,7 +73,28 @@ func get_input():
 				ItemTypes.ItemTypes.CLOWN_HORN:
 					use_horn()
 				
-			
+
+func get_closest_patient():
+	var ray = $RayCast2D as RayCast2D
+	var shortest_len = INF
+	var shortest_node = null
+	for patient in current_patients:
+		ray.target_position =  patient.global_position - global_position
+		ray.force_raycast_update()
+		
+		var n = ray.get_collider() as Node
+		if not n.is_in_group("patient_group"):
+			continue
+		else:
+			var dist = ray.get_collision_point().distance_to(global_position)
+			if dist < shortest_len:
+				shortest_node = n
+				shortest_len = dist
+	if shortest_node:
+		current_patients.erase(shortest_node)
+	return shortest_node
+
+
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
