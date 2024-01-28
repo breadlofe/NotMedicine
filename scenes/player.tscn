@@ -74,6 +74,9 @@ script = ExtResource("1_w2ykl")
 
 [node name="Footsteps" parent="." instance=ExtResource("2_3hylq")]
 
+[node name="airhorn_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_xyfg2")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_py6lm")
 hframes = 4
@@ -207,9 +210,6 @@ collide_with_areas = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_wxexh")
-
-[node name="airhorn_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_xyfg2")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
