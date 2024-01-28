@@ -74,7 +74,7 @@ func get_closest_patient():
 		ray.force_raycast_update()
 		
 		var n = ray.get_collider() as Node
-		if not n.is_in_group("patient_group"):
+		if not n.is_in_group("patient_group") and not n.name.contains("bed"):
 			continue
 		else:
 			var dist = ray.get_collision_point().distance_to(global_position)
