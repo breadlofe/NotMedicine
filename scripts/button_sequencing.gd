@@ -68,7 +68,7 @@ func select_random() -> Texture2D:
 
 func apply_rewards():
 	is_active = false
-	current_patient.get_parent().bed.on_patient_cured()
+	current_patient.bed.on_patient_cured()
 	var patient_node = current_patient as Node
 	patient_node.queue_free()
 	player.adjust_score(5)
@@ -80,7 +80,7 @@ func apply_consequences():
 	if current_patient:
 		particle_emission(current_patient.global_position, current_patient.global_rotation, 0)
 		var patient_node = current_patient as Node
-		patient_node.get_parent().queue_free()
+		patient_node.queue_free()
 	var failure = $Failure as AudioStreamPlayer
 	failure.play()
 	player.adjust_score(-10)

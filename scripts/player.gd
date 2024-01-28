@@ -84,6 +84,8 @@ func get_closest_patient():
 				shortest_node = n
 				shortest_len = dist
 	if shortest_node:
+		shortest_node = shortest_node.get_parent()
+		
 		current_patients.erase(shortest_node)
 	return shortest_node
 
