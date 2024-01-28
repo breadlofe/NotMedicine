@@ -39,7 +39,7 @@ func get_input():
 	if(input_direction.length() > 0):
 		$Footsteps.start_loop()
 		_animation_player.play("walk_animation")
-		rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
+		$Sprite2D.rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
 	else:
 		_animation_player.stop()
 		$Footsteps.stop_loop()
@@ -52,7 +52,9 @@ func get_input():
 	var interact_input = Input.is_action_just_pressed("interact")
 	if(interact_input):
 		if in_patient_area > 0:
-			SignalBus.on_player_attempt_funny.emit(current_patients.pop_back())
+			var node = get_closest_patient()
+			if node:
+				SignalBus.on_player_attempt_funny.emit(node)
 		elif has_item and not item_active:
 			match current_item:
 				ItemTypes.ItemTypes.SUPERSTAR:
@@ -62,7 +64,28 @@ func get_input():
 				ItemTypes.ItemTypes.CLOWN_HORN:
 					use_horn()
 				
-			
+
+func get_closest_patient():
+	var ray = $RayCast2D as RayCast2D
+	var shortest_len = INF
+	var shortest_node = null
+	for patient in current_patients:
+		ray.target_position =  patient.global_position - global_position
+		ray.force_raycast_update()
+		
+		var n = ray.get_collider() as Node
+		if not n.is_in_group("patient_group"):
+			continue
+		else:
+			var dist = ray.get_collision_point().distance_to(global_position)
+			if dist < shortest_len:
+				shortest_node = n
+				shortest_len = dist
+	if shortest_node:
+		current_patients.erase(shortest_node)
+	return shortest_node
+
+
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
