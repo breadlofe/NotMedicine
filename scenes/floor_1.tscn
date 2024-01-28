@@ -328,7 +328,7 @@ position = Vector2(3224, -42)
 rotation = 1.5708
 scale = Vector2(0.4, 16)
 
-[node name="invis_wall_north2" parent="." instance=ExtResource("4_3acs6")]
+[node name="invis_wall_south" parent="." instance=ExtResource("4_3acs6")]
 position = Vector2(3228, 3201)
 rotation = 1.5708
 scale = Vector2(0.4, 16)

@@ -28,12 +28,6 @@ func _init():
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	input_direction = input_direction.normalized()
-	
-	# For playing walking animation
-	if input_direction.x != 0 or input_direction.y != 0:
-		_animation_player.play("walk_animation")
-	else:
-		_animation_player.stop()
 		
 	#superstar effect
 	if superstar_active:
@@ -41,12 +35,13 @@ func get_input():
 	else:
 		velocity = input_direction * speed
 	
-
-	#rotate player.
+	#rotate and animate player.
 	if(input_direction.length() > 0):
 		$Footsteps.start_loop()
+		_animation_player.play("walk_animation")
 		rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
 	else:
+		_animation_player.stop()
 		$Footsteps.stop_loop()
 
 	

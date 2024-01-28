@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var nav_agent = $NavigationAgent2D
 @onready var stun_timer = $StunTimer
+@onready var _animation_player = $AnimationPlayer
 
 var position_nodes: Array
 var speed: float = 275.0
@@ -19,6 +20,11 @@ func _ready():
 	SignalBus.on_horn_fired.connect(on_stun)
 
 func _process(delta):
+	if velocity.normalized().length() > 0.9:
+		_animation_player.play("walk_animation")
+		rotation_degrees = rad_to_deg(atan2(velocity.y, velocity.x)) - 90
+	else:
+		_animation_player.stop()
 	if player:
 		if not player.coat_active:
 			state = "chase"
