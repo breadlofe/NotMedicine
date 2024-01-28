@@ -18,7 +18,9 @@ _data = [Vector2(0.00857142, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.743396), 0.0, 0.0,
 point_count = 2
 
 [node name="confetti_for_kyle" type="CPUParticles2D"]
+emitting = false
 amount = 400
+one_shot = true
 speed_scale = 0.6
 explosiveness = 1.0
 lifetime_randomness = 0.5
