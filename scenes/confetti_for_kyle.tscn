@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://csm2jbim7qrv0"]
+
+[ext_resource type="Texture2D" uid="uid://bk1f2mutbk8vg" path="res://sprites/confetti.png" id="1_llt7g"]
+[ext_resource type="Script" path="res://scripts/confetti_for_kyle.gd" id="1_thjn6"]
+[ext_resource type="Texture2D" uid="uid://uao54drmta1m" path="res://sprites/haha.png" id="3_scmjx"]
+
+[sub_resource type="Curve" id="Curve_57klk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_05em0"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_knsru"]
+_data = [Vector2(0.00857142, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.743396), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="confetti_for_kyle" type="CPUParticles2D"]
+amount = 400
+speed_scale = 0.6
+explosiveness = 1.0
+lifetime_randomness = 0.5
+texture = ExtResource("1_llt7g")
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_max = 300.0
+angle_max = 270.0
+scale_amount_curve = SubResource("Curve_57klk")
+color = Color(0.952941, 0.611765, 0.866667, 1)
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_05em0")
+script = ExtResource("1_thjn6")
+
+[node name="haha_for_kyle" type="CPUParticles2D" parent="."]
+amount = 16
+explosiveness = 0.75
+lifetime_randomness = 1.0
+texture = ExtResource("3_scmjx")
+direction = Vector2(1, -1)
+spread = 60.0
+gravity = Vector2(0, -100)
+initial_velocity_max = 100.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_knsru")
