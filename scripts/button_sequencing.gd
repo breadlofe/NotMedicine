@@ -73,6 +73,8 @@ func apply_consequences():
 		explode_blood(current_patient.global_position, current_patient.global_rotation)
 		var patient_node = current_patient as Node
 		patient_node.queue_free()
+	var failure = $Failure as AudioStreamPlayer
+	failure.play()
 	clear_textures()
 	
 func clear_textures():

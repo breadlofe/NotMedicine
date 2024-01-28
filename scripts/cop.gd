@@ -16,6 +16,12 @@ func _ready():
 	update_target_position(target_position)
 
 func _process(delta):
+	if player:
+		if not player.coat_active:
+			state = "chase"
+		else:
+			state = "patrol"
+			
 	if state == "patrol":
 		if not nav_agent.is_target_reached():
 			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
@@ -37,9 +43,13 @@ func update_target_position(target: Vector2):
 func _on_cop_detect_area_body_entered(body):
 	if body.is_in_group("player_group"):
 		player = body
+		if body.coat_active:
+			return
 		state = "chase"
 
 func _on_cop_detect_area_body_exited(body):
+	if not player:
+		return
 	if body.is_in_group("player_group"):
 		last_position = player.position
 		last_velocity = player.velocity

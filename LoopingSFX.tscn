@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd0n30ubvlo3u"]
+
+[ext_resource type="AudioStream" uid="uid://dao7i1x7gxiw6" path="res://sfx/684855__faircashew__funny-foot-steps.mp3" id="1_7sdea"]
+[ext_resource type="Script" path="res://scenes/LoopingSFx.gd" id="2_bmddh"]
+
+[node name="Footsteps" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_7sdea")
+script = ExtResource("2_bmddh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

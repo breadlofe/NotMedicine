@@ -32,8 +32,10 @@ func get_input():
 
 	#rotate player.
 	if(input_direction.length() > 0):
+		$Footsteps.start_loop()
 		rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
-
+	else:
+		$Footsteps.stop_loop()
 
 	
 	# hud cooldown effect
@@ -130,3 +132,7 @@ func end_arrest(cop:Node):
 
 func _on_arrest_timer_timeout():
 	get_tree().quit()
+
+
+func _on_footsteps_finished():
+	pass # Replace with function body.
