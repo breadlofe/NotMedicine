@@ -5,6 +5,7 @@ extends CharacterBody2D
 var item_active = false
 var has_item = false
 var superstar_active = false
+var coat_active = false
 var current_item = null
 
 var in_patient_area = 0
@@ -48,7 +49,7 @@ func get_input():
 				ItemTypes.ItemTypes.SUPERSTAR:
 					use_superstar()
 				ItemTypes.ItemTypes.DOCTORS_OUTFIT:
-					pass
+					use_coat()
 				ItemTypes.ItemTypes.CLOWN_HORN:
 					pass
 				
@@ -66,6 +67,8 @@ func pickup_handler(type):
 	match type:
 		ItemTypes.ItemTypes.SUPERSTAR:
 			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/NotMedicine.png")
+		ItemTypes.ItemTypes.DOCTORS_OUTFIT:
+			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/LabCoat.png")			
 	
 	
 	current_item = type
@@ -73,16 +76,32 @@ func pickup_handler(type):
 func use_superstar():
 	superstar_active = true
 	item_active = true		
-	has_item = false
 	
 	timer.wait_time = 5
 	timer.start()
-
 	await timer.timeout
-	
+	has_item = false
 	superstar_active = false
 	item_active = false
+	
 	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+
+func use_coat():
+	coat_active = true
+	item_active = true
+	
+	timer.wait_time = 15
+	timer.start()
+	
+	await timer.timeout
+
+	has_item = false	
+	coat_active = false
+	item_active = false
+	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+	
+	
+
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("patient_group"):
