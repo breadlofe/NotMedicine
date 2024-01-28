@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
 [ext_resource type="PackedScene" uid="uid://dl6dow356dkaa" path="res://scenes/patient.tscn" id="2_ltn8d"]
 [ext_resource type="PackedScene" uid="uid://08jh4ff1bvyj" path="res://scenes/cop.tscn" id="4_pw3wk"]
-[ext_resource type="PackedScene" path="res://scenes/coat_item.tscn" id="6_2w1kv"]
+[ext_resource type="PackedScene" uid="uid://jyh4356c16rw" path="res://scenes/coat_item.tscn" id="6_2w1kv"]
 
 [node name="Game" type="Node"]
 
