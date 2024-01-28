@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://jyh4356c16rw"]
+
+[ext_resource type="PackedScene" uid="uid://bgghg54bs07sv" path="res://scenes/item.tscn" id="1_14qlt"]
+[ext_resource type="Script" path="res://scripts/coat_item.gd" id="2_1lbuk"]
+[ext_resource type="Texture2D" uid="uid://dbrbgikkyf0mq" path="res://sprites/LabCoat.png" id="2_3m6gb"]
+
+[node name="Sprite2D" instance=ExtResource("1_14qlt")]
+texture = ExtResource("2_3m6gb")
+
+[node name="Area2D" parent="." index="0"]
+script = ExtResource("2_1lbuk")

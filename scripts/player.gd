@@ -6,6 +6,7 @@ extends CharacterBody2D
 var item_active = false
 var has_item = false
 var superstar_active = false
+var coat_active = false
 var current_item = null
 
 var in_patient_area = 0
@@ -22,17 +23,21 @@ func _init():
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	input_direction = input_direction.normalized()
+	
+	#superstar effect
 	if superstar_active:
 		velocity = input_direction * speed * 2
 	else:
 		velocity = input_direction * speed
 	
 
+	#rotate player.
 	if(input_direction.length() > 0):
 		rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
 
 
 	
+	# hud cooldown effect
 	if item_active:
 		$Camera2D/ItemHUD/Control/ProgressBar.value = timer.time_left / timer.wait_time 
 	
@@ -45,7 +50,7 @@ func get_input():
 				ItemTypes.ItemTypes.SUPERSTAR:
 					use_superstar()
 				ItemTypes.ItemTypes.DOCTORS_OUTFIT:
-					pass
+					use_coat()
 				ItemTypes.ItemTypes.CLOWN_HORN:
 					use_horn()
 				
@@ -65,21 +70,24 @@ func pickup_handler(type):
 			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/NotMedicine.png")
 		ItemTypes.ItemTypes.CLOWN_HORN:
 			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/Horn.png")
+		ItemTypes.ItemTypes.DOCTORS_OUTFIT:
+			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/LabCoat.png")			
+	
 	current_item = type
 			
 func use_superstar():
 	superstar_active = true
 	item_active = true		
-	has_item = false
 	
 	timer.wait_time = 5
 	timer.start()
-
 	await timer.timeout
-	
+	has_item = false
 	superstar_active = false
 	item_active = false
+	
 	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+
 
 func use_horn():
 	item_active = true
@@ -93,6 +101,22 @@ func use_horn():
 	
 	item_active = false
 	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+
+
+func use_coat():
+	coat_active = true
+	item_active = true
+	
+	timer.wait_time = 15
+	timer.start()
+	
+	await timer.timeout
+
+	has_item = false	
+	coat_active = false
+	item_active = false
+	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+	
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("patient_group"):

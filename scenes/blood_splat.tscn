@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://lddrjit7xlkj"]
+
+[ext_resource type="Material" path="res://particles/confetti_process_material.tres" id="1_vcsh0"]
+[ext_resource type="Script" path="res://scripts/blood_splat.gd" id="2_meob3"]
+
+[node name="blood_splat" type="GPUParticles2D"]
+emitting = false
+amount = 100
+process_material = ExtResource("1_vcsh0")
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_meob3")
