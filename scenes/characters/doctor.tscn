@@ -30,6 +30,8 @@ shape = SubResource("CircleShape2D_r3vci")
 
 [node name="patrol" parent="." instance=ExtResource("3_56rd5")]
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
 [node name="IdleTimer" type="Timer" parent="."]
 one_shot = true
 

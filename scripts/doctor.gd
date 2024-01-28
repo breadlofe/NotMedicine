@@ -8,13 +8,13 @@ enum States {PATROL, CHASE, IDLE, STUNNED}
 @export var patrol_point_group : String
 @export var idle_time : float = 2.5
 
+@onready var nav_agent = $NavigationAgent2D
 @onready var idle_timer = $IdleTimer
 @onready var stun_timer = $StunTimer
 
 var visibility_color = Color(0.867, 0.91, 0.247, 0.1)
 var target
 var target_position
-var patrol_direction : Vector2 = Vector2.ZERO
 var state = States.PATROL
 var pre_stun_state : int
 
@@ -38,15 +38,16 @@ func _process(delta):
 		if target:
 			state = States.CHASE
 		else:
-			patrol_direction = to_local(patrol_component.current_patrol_point.position).normalized()
-			velocity = patrol_direction * speed
+			nav_agent.set_target_position(patrol_component.current_patrol_point.position)
+			var move_dir = (nav_agent.get_next_path_position() - position).normalized()
+			velocity = move_dir * speed
 			move_and_slide()
 	if state == States.CHASE:
 		if target:
-			target_position = target.position
-			var target_position_normalized = (target_position - position).normalized()
-			if position.distance_to(target_position) > 20:
-				velocity = target_position_normalized * speed
+			nav_agent.set_target_position(target.position)
+			var move_dir = (nav_agent.get_next_path_position() - position).normalized()
+			if position.distance_to(target.position) > 20:
+				velocity = move_dir * speed
 				move_and_slide()
 		else:
 			state = States.PATROL

@@ -112,7 +112,7 @@ func use_coat():
 	
 	await timer.timeout
 
-	has_item = false	
+	has_item = false
 	coat_active = false
 	item_active = false
 	$Camera2D/ItemHUD/Control/TextureRect.texture = null
