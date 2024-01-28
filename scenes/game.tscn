@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://5johbwli757f"]
+[gd_scene load_steps=7 format=3 uid="uid://5johbwli757f"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2uf12"]
 [ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
 [ext_resource type="PackedScene" uid="uid://jyh4356c16rw" path="res://scenes/coat_item.tscn" id="6_2w1kv"]
 [ext_resource type="PackedScene" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
+[ext_resource type="PackedScene" uid="uid://cptmdfs0olo5j" path="res://scenes/characters/doctor.tscn" id="6_ebi71"]
+[ext_resource type="PackedScene" uid="uid://c2xffi0qm2gex" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
 
 [node name="Game" type="Node"]
 
@@ -13,6 +15,12 @@ script = ExtResource("1_2uf12")
 
 [node name="floor1" parent="worldRoot" instance=ExtResource("1_jyq01")]
 position = Vector2(-480, -96)
+
+[node name="player" parent="worldRoot" instance=ExtResource("1_l5aeu")]
+position = Vector2(-296, 872)
+
+[node name="Sprite2D" parent="worldRoot" instance=ExtResource("6_2w1kv")]
+position = Vector2(-322, 1004)
 
 [node name="positionNodes" type="Node2D" parent="worldRoot"]
 
@@ -77,7 +85,7 @@ position = Vector2(2448, 1440)
 position = Vector2(1968, 1728)
 
 [node name="Marker2D21" type="Marker2D" parent="worldRoot/positionNodes"]
-position = Vector2(1936, 1184)
+position = Vector2(1808, 1072)
 
 [node name="Marker2D22" type="Marker2D" parent="worldRoot/positionNodes"]
 position = Vector2(1360, 1712)
@@ -133,13 +141,54 @@ position = Vector2(-208, 2960)
 [node name="Marker2D39" type="Marker2D" parent="worldRoot/positionNodes"]
 position = Vector2(2384, 3056)
 
-[node name="player" parent="worldRoot" instance=ExtResource("1_l5aeu")]
-position = Vector2(-296, 872)
-
-[node name="Sprite2D" parent="worldRoot" instance=ExtResource("6_2w1kv")]
-position = Vector2(-322, 1004)
-
 [node name="cop_spawn" parent="worldRoot" instance=ExtResource("7_463d7")]
-position = Vector2(-416, 648)
+position = Vector2(-432, 848)
+
+[node name="doctor_positions" type="Node2D" parent="worldRoot"]
+
+[node name="doctor_1" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_1" groups=["node_1"]]
+position = Vector2(336, 208)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_1" groups=["node_1"]]
+position = Vector2(336, 592)
+
+[node name="doctor_2" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_2" groups=["node_2"]]
+position = Vector2(1520, 208)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_2" groups=["node_2"]]
+position = Vector2(1520, 592)
+
+[node name="Marker2D3" type="Marker2D" parent="worldRoot/doctor_positions/doctor_2" groups=["node_2"]]
+position = Vector2(2048, 208)
+
+[node name="doctor_3" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_3" groups=["node_3"]]
+position = Vector2(1936, 1296)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_3" groups=["node_3"]]
+position = Vector2(1808, 1616)
+
+[node name="Marker2D3" type="Marker2D" parent="worldRoot/doctor_positions/doctor_3" groups=["node_3"]]
+position = Vector2(1232, 1616)
+
+[node name="Marker2D4" type="Marker2D" parent="worldRoot/doctor_positions/doctor_3" groups=["node_3"]]
+position = Vector2(1232, 1072)
+
+[node name="doctor" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(336, 400)
+patrol_point_group = "node_1"
+
+[node name="doctor2" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(1776, 400)
+patrol_point_group = "node_2"
+
+[node name="doctor3" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(2032, 1456)
+patrol_point_group = "node_3"
 
 [editable path="worldRoot/floor1"]

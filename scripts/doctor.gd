@@ -3,7 +3,7 @@ extends CharacterBody2D
 enum States {PATROL, CHASE, IDLE, STUNNED}
 
 @export var detection_radius : int
-@export var speed : int = 200
+@export var speed : int = 225
 @export var patrol_component : Node2D
 @export var patrol_point_group : String
 @export var idle_time : float = 2.5
@@ -19,7 +19,6 @@ var target_position
 var state = States.PATROL
 var pre_stun_state : int
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if patrol_component:
@@ -31,12 +30,11 @@ func _ready():
 	idle_timer.set_wait_time(idle_time)
 	SignalBus.on_horn_fired.connect(on_stun)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	queue_redraw()
 	if velocity.normalized().length() > 0.9:
-		_animation_player.play("walk_animation")
+		_animation_player.play("walking_animation")
 		$doctor_sprite.rotation_degrees = rad_to_deg(atan2(velocity.y, velocity.x)) - 90
 	else:
 		_animation_player.stop()
@@ -57,7 +55,6 @@ func _process(delta):
 				move_and_slide()
 		else:
 			state = States.PATROL
-		
 
 func _on_visibility_body_entered(body):
 	if target:
@@ -69,7 +66,6 @@ func _on_visibility_body_entered(body):
 			if not idle_timer.is_stopped():
 				idle_timer.stop()
 
-
 func _on_visibility_body_exited(body):
 	if body == target:
 		target = null
@@ -77,23 +73,18 @@ func _on_visibility_body_exited(body):
 			state = States.IDLE
 			idle_timer.start()
 
-
 func _draw():
 	draw_circle(Vector2(), detection_radius, visibility_color)
-
 
 func _on_idle_timer_timeout():
 	state = States.PATROL
 	
-	
 func _on_stun_timer_timeout():
 	state = pre_stun_state
-	
 	
 func _on_patrol_reached_patrol_point():
 	state = States.IDLE
 	idle_timer.start()
-	
 
 func on_stun(stun_time):
 	pre_stun_state = state
@@ -101,12 +92,10 @@ func on_stun(stun_time):
 	stun_timer.set_wait_time(stun_time)
 	stun_timer.start()
 
-
 func _on_doctor_arrest_area_body_entered(body):
 	if body.is_in_group("player_group"):
 		if body.has_method("arrest"):
 			body.arrest(3, $".")
-
 
 func _on_doctor_arrest_area_body_exited(body):
 	if body.is_in_group("player_group"):
