@@ -1,4 +1,4 @@
-extends Node2D
+aextends Node2D
 
 @onready var pause_menu = $player.pause_menu
 var paused = false
