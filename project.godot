@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://scripts/signal_bus.gd"
 ItemTypes="*res://scripts/item_types.gd"
+MusicManager="*res://music_manager.gd"
 
 [gui]
 

@@ -18,6 +18,7 @@ func toggle_pause():
 		pause_menu.hide()
 		get_tree().paused = false
 	else:
+		MusicManager.play_song(MusicManager.PauseMenu)
 		pause_menu.show()
 		pause_menu.on_reveal()
 		get_tree().paused = true
