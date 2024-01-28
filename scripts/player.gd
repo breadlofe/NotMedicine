@@ -12,9 +12,11 @@ var current_item = null
 var in_patient_area = 0
 var current_patients: Array[Node]
 var cops_arresting_player: Array[Node]
+var score : int = 0
 
 @onready var timer = $ItemTimer as Timer
 @onready var pause_menu = $Camera2D/MenuHUD/PauseMenu
+@onready var score_label = $Camera2D/PlayerHUD/Score
 
 func _init():
 	SignalBus.connect("on_pickup", pickup_handler)
@@ -41,7 +43,7 @@ func get_input():
 	
 	# hud cooldown effect
 	if item_active:
-		$Camera2D/ItemHUD/Control/ProgressBar.value = timer.time_left / timer.wait_time 
+		$Camera2D/PlayerHUD/HeldItem/ProgressBar.value = timer.time_left / timer.wait_time 
 	
 	var interact_input = Input.is_action_just_pressed("interact")
 	if(interact_input):
@@ -69,11 +71,11 @@ func pickup_handler(type):
 	has_item = true
 	match type:
 		ItemTypes.ItemTypes.SUPERSTAR:
-			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/NotMedicine.png")
+			$Camera2D/PlayerHUD/HeldItem/TextureRect.texture = load("res://sprites/NotMedicine.png")
 		ItemTypes.ItemTypes.CLOWN_HORN:
-			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/Horn.png")
+			$Camera2D/PlayerHUD/HeldItem/TextureRect.texture = load("res://sprites/Horn.png")
 		ItemTypes.ItemTypes.DOCTORS_OUTFIT:
-			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/LabCoat.png")			
+			$Camera2D/PlayerHUD/HeldItem/TextureRect.texture = load("res://sprites/LabCoat.png")			
 	
 	current_item = type
 			
@@ -88,7 +90,7 @@ func use_superstar():
 	superstar_active = false
 	item_active = false
 	
-	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+	$Camera2D/PlayerHUD/HeldItem/TextureRect.texture = null
 
 
 func use_horn():
@@ -102,7 +104,7 @@ func use_horn():
 	await timer.timeout
 	
 	item_active = false
-	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+	$Camera2D/PlayerHUD/HeldItem/TextureRect.texture = null
 
 
 func use_coat():
@@ -117,7 +119,7 @@ func use_coat():
 	has_item = false
 	coat_active = false
 	item_active = false
-	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+	$Camera2D/PlayerHUD/HeldItem/TextureRect.texture = null
 	
 
 func _on_area_2d_area_entered(area):
@@ -151,3 +153,8 @@ func _on_arrest_timer_timeout():
 
 func _on_footsteps_finished():
 	pass # Replace with function body.
+	
+
+func adjust_score(amount):
+	score += amount
+	score_label.text = "Score: " + str(score)

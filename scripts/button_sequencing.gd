@@ -1,8 +1,10 @@
 extends CanvasLayer
 
 signal cop_is_spawning
-@export var textures: Array[CompressedTexture2D]
 
+@onready var player = $"../../"
+
+@export var textures: Array[CompressedTexture2D]
 # Packed scene for particle emissions.
 @export var deathParticle: PackedScene
 
@@ -68,6 +70,7 @@ func apply_rewards():
 	current_patient.bed.on_patient_cured()
 	var patient_node = current_patient as Node
 	patient_node.queue_free()
+	player.adjust_score(5)
 	clear_textures()
 
 func apply_consequences():
@@ -78,6 +81,7 @@ func apply_consequences():
 		patient_node.queue_free()
 	var failure = $Failure as AudioStreamPlayer
 	failure.play()
+	player.adjust_score(-10)
 	clear_textures()
 	SignalBus.cop_is_spawning.emit()
 	

@@ -44,9 +44,9 @@ shape = SubResource("CircleShape2D_a2uso")
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.928525, 0.944473)
 
-[node name="ItemHUD" type="CanvasLayer" parent="Camera2D"]
+[node name="PlayerHUD" type="CanvasLayer" parent="Camera2D"]
 
-[node name="Control" type="Control" parent="Camera2D/ItemHUD"]
+[node name="HeldItem" type="Control" parent="Camera2D/PlayerHUD"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 40.0
@@ -55,20 +55,20 @@ offset_right = 80.0
 offset_bottom = 80.0
 scale = Vector2(2, 2)
 
-[node name="ItemBox" type="TextureRect" parent="Camera2D/ItemHUD/Control"]
+[node name="ItemBox" type="TextureRect" parent="Camera2D/PlayerHUD/HeldItem"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_vkhe8")
 expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/ItemHUD/Control"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/PlayerHUD/HeldItem"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="Camera2D/ItemHUD/Control"]
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D/PlayerHUD/HeldItem"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -77,6 +77,17 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_uwfxm")
 max_value = 1.0
 fill_mode = 3
 show_percentage = false
+
+[node name="Score" type="Label" parent="Camera2D/PlayerHUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -172.0
+offset_top = 40.0
+offset_right = -74.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "Score: 0"
 
 [node name="InputSequenceHUD" type="CanvasLayer" parent="Camera2D"]
 script = ExtResource("3_c7vpa")
