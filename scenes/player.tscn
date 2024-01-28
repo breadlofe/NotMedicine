@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bl5x14tyg77is" path="res://sprites/Button-Down.png" id="6_4te4d"]
 [ext_resource type="Texture2D" uid="uid://b8gde2icsappi" path="res://sprites/Button-Left.png" id="7_3oapi"]
 [ext_resource type="PackedScene" uid="uid://3qdx8cier013" path="res://scenes/UI/pause_menu.tscn" id="9_pkpjy"]
-[ext_resource type="PackedScene" uid="uid://c3r651ft7v6jb" path="res://scenes/blood_splat_CPU.tscn" id="10_d1wdc"]
+[ext_resource type="PackedScene" path="res://scenes/blood_splat_CPU.tscn" id="10_d1wdc"]
 [ext_resource type="AudioStream" uid="uid://dn5yab2vcaosp" path="res://sfx/720893__baggonotes__incorrect_buzz.wav" id="10_viydv"]
 [ext_resource type="PackedScene" uid="uid://csm2jbim7qrv0" path="res://scenes/confetti_for_kyle.tscn" id="11_b7tv5"]
 
@@ -62,7 +62,8 @@ bg_color = Color(0, 0, 0, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0.356863)
 
 [node name="player" type="CharacterBody2D" groups=["player_group"]]
-collision_mask = 17
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_w2ykl")
 
 [node name="Footsteps" parent="." instance=ExtResource("2_3hylq")]

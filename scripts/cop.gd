@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var nav_agent = $NavigationAgent2D
+@onready var ray_cast =  $RayCast2D
 @onready var stun_timer = $StunTimer
 @onready var _animation_player = $AnimationPlayer
 
@@ -12,6 +13,8 @@ var last_velocity: Vector2 = Vector2.ZERO
 var state: String = "patrol"
 var player: CharacterBody2D = null
 var node_positions: Array
+var cur_position: Vector2
+var result
 
 func _ready():
 	position_nodes = $"../../positionNodes".get_children()
@@ -22,35 +25,40 @@ func _ready():
 func _process(delta):
 	if velocity.normalized().length() > 0.9:
 		_animation_player.play("walk_animation")
-		rotation_degrees = rad_to_deg(atan2(velocity.y, velocity.x)) - 90
+		$cop_sprite.rotation_degrees = rad_to_deg(atan2(velocity.y, velocity.x)) - 90
 	else:
 		_animation_player.stop()
 	if player:
-		if not player.coat_active:
-			state = "chase"
-		else:
-			state = "patrol"
-			
+		ray_cast.target_position = player.global_position - global_position
+		result = ray_cast.get_collider()
+		if result:
+			if result.is_in_group("player_group"):
+				if not player.coat_active:
+					state = "chase"
+				else:
+					state = "patrol"
+					player = null
+					target_position = position_nodes[randi() % position_nodes.size()].position
+					cur_position = target_position
+					update_target_position(target_position)
+			elif result.is_in_group("tile_group"):
+				state = "patrol"
+	print(state)
 	if state == "patrol":
-		if player:
-			state = "chase"
+		if not nav_agent.is_target_reached():
+			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
+			move_and_slide()
 		else:
-			if not nav_agent.is_target_reached():
-				velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
-				move_and_slide()
-			else:
-				target_position = position_nodes[randi() % position_nodes.size()].position
-				await get_tree().create_timer(1).timeout
+			target_position = position_nodes[randi() % position_nodes.size()].position
+			cur_position = target_position
+			await get_tree().create_timer(1).timeout
 			update_target_position(target_position)
 	elif state == "chase":
-		if !player:
-			state = "patrol"
-		else:
-			target_position = player.position
-			update_target_position(target_position)
-			if position.distance_to(target_position) > 0.5:
-				velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
-				move_and_slide()
+		target_position = player.position
+		update_target_position(target_position)
+		if position.distance_to(target_position) > 0.5:
+			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
+			move_and_slide()
 
 func update_target_position(target: Vector2):
 	nav_agent.set_target_position(target)
@@ -61,16 +69,21 @@ func _on_cop_detect_area_body_entered(body):
 		if body.coat_active:
 			return
 		if state != "stunned":
-			state = "chase"
+			ray_cast.target_position = player.global_position - global_position
+			result = ray_cast.get_collider()
+			if result:
+				if result.is_in_group("player_group"):
+					state = "chase"
 
 func _on_cop_detect_area_body_exited(body):
 	if not player:
 		return
 	if body.is_in_group("player_group"):
-		last_position = player.position
-		last_velocity = player.velocity
-		target_position = last_position + last_velocity
-		update_target_position(target_position)
+		if target_position != cur_position:
+			last_position = player.position
+			last_velocity = player.velocity
+			target_position = last_position + last_velocity
+			update_target_position(target_position)
 		player = null
 		if state != "stunned":
 			state = "patrol"
@@ -90,7 +103,5 @@ func on_stun(stun_time):
 	state = "stunned"
 	stun_timer.set_wait_time(stun_time)
 	stun_timer.start()
-	
 	await stun_timer.timeout
-	
 	state = pre_stun_state
