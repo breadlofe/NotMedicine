@@ -1,12 +1,12 @@
 extends Control
 
 #@onready var main = $"../../../../"
-@onready var player_node = get_node("/root/Game")
+#@onready var player_node = get_node("/root/Game")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/Restart.grab_focus()
-	print(player_node)
+	#print(player_node)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
