@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://f574280np1ko" path="res://scenes/floor_1.tscn" id="1_jyq01"]
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="1_l5aeu"]
 [ext_resource type="PackedScene" uid="uid://jyh4356c16rw" path="res://scenes/coat_item.tscn" id="6_2w1kv"]
-[ext_resource type="PackedScene" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
 [ext_resource type="PackedScene" uid="uid://cptmdfs0olo5j" path="res://scenes/characters/doctor.tscn" id="6_ebi71"]
 [ext_resource type="PackedScene" uid="uid://c2xffi0qm2gex" path="res://scenes/cop_spawn.tscn" id="7_463d7"]
 
@@ -179,6 +178,34 @@ position = Vector2(1232, 1616)
 [node name="Marker2D4" type="Marker2D" parent="worldRoot/doctor_positions/doctor_3" groups=["node_3"]]
 position = Vector2(1232, 1072)
 
+[node name="doctor_4" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_4" groups=["node_4"]]
+position = Vector2(80, 1072)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_4" groups=["node_4"]]
+position = Vector2(80, 1616)
+
+[node name="Marker2D3" type="Marker2D" parent="worldRoot/doctor_positions/doctor_4" groups=["node_4"]]
+position = Vector2(656, 1072)
+
+[node name="Marker2D4" type="Marker2D" parent="worldRoot/doctor_positions/doctor_4" groups=["node_4"]]
+position = Vector2(656, 1616)
+
+[node name="doctor_5" type="Node2D" parent="worldRoot/doctor_positions"]
+
+[node name="Marker2D" type="Marker2D" parent="worldRoot/doctor_positions/doctor_5" groups=["node_5"]]
+position = Vector2(-352, 80)
+
+[node name="Marker2D2" type="Marker2D" parent="worldRoot/doctor_positions/doctor_5" groups=["node_5"]]
+position = Vector2(-368, 1616)
+
+[node name="Marker2D3" type="Marker2D" parent="worldRoot/doctor_positions/doctor_5" groups=["node_5"]]
+position = Vector2(-304, 1840)
+
+[node name="Marker2D4" type="Marker2D" parent="worldRoot/doctor_positions/doctor_5" groups=["node_5"]]
+position = Vector2(-352, 2576)
+
 [node name="doctor" parent="worldRoot" instance=ExtResource("6_ebi71")]
 position = Vector2(336, 400)
 patrol_point_group = "node_1"
@@ -190,5 +217,13 @@ patrol_point_group = "node_2"
 [node name="doctor3" parent="worldRoot" instance=ExtResource("6_ebi71")]
 position = Vector2(2032, 1456)
 patrol_point_group = "node_3"
+
+[node name="doctor4" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(208, 1456)
+patrol_point_group = "node_4"
+
+[node name="doctor5" parent="worldRoot" instance=ExtResource("6_ebi71")]
+position = Vector2(-208, 1456)
+patrol_point_group = "node_5"
 
 [editable path="worldRoot/floor1"]
