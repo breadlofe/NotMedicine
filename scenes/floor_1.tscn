@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bky6munpag06r" path="res://scenes/bed.tscn" id="3_aiqsb"]
 [ext_resource type="Texture2D" uid="uid://dgo3bk61prfik" path="res://sprites/Wall.png" id="3_viw5a"]
 [ext_resource type="PackedScene" uid="uid://s5onyip10cg6" path="res://scenes/wall_test.tscn" id="4_3acs6"]
-[ext_resource type="PackedScene" uid="uid://c31r7dipw3jpv" path="res://scenes/plant.tscn" id="5_fe3i8"]
+[ext_resource type="PackedScene" path="res://scenes/plant.tscn" id="5_fe3i8"]
 [ext_resource type="Texture2D" uid="uid://c5chmyd76s82w" path="res://sprites/cone_light.png" id="6_g7tog"]
 [ext_resource type="Texture2D" uid="uid://bujtavgbqpvuv" path="res://sprites/carpet2.png" id="7_jmckr"]
 [ext_resource type="Texture2D" uid="uid://u44rqckc8cs7" path="res://sprites/carpet1.png" id="8_domrn"]

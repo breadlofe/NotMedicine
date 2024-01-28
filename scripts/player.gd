@@ -94,6 +94,7 @@ func get_closest_patient():
 		if not n:
 			continue
 		if not n.is_in_group("patient_group"):
+			print(n)
 			continue
 		else:
 			var dist = ray.get_collision_point().distance_to(global_position)
