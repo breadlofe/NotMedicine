@@ -14,7 +14,7 @@ func _ready():
 	target_position = node_positions[randi() % node_positions.size()].position
 	update_target_position(target_position)
 
-func _physics_process(delta):
+func _process(delta):
 	if state == "patrol":
 		if(nav_agent.is_navigation_finished()):
 			return
@@ -59,7 +59,6 @@ func _on_cop_detect_player_body_entered(body):
 	if body.is_in_group("player_group"):
 		if body.has_method("arrest"):
 			body.arrest(3, $".")
-
 
 func _on_cop_detect_player_body_exited(body):
 	if body.is_in_group("player_group"):
