@@ -18,6 +18,9 @@ var score : int = 0
 @onready var pause_menu = $Camera2D/MenuHUD/PauseMenu
 @onready var score_label = $Camera2D/PlayerHUD/Score
 
+# Player animations for walking
+@onready var _animation_player = $AnimationPlayer
+
 func _init():
 	SignalBus.connect("on_pickup", pickup_handler)
 	
@@ -26,6 +29,12 @@ func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	input_direction = input_direction.normalized()
 	
+	# For playing walking animation
+	if input_direction.x != 0 or input_direction.y != 0:
+		_animation_player.play("walk_animation")
+	else:
+		_animation_player.stop()
+		
 	#superstar effect
 	if superstar_active:
 		velocity = input_direction * speed * 2
