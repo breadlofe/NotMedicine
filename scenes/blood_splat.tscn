@@ -1,12 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://lddrjit7xlkj"]
+[gd_scene load_steps=3 format=3 uid="uid://bm00giwvkcxfu"]
 
-[ext_resource type="Material" path="res://particles/confetti_process_material.tres" id="1_vcsh0"]
 [ext_resource type="Script" path="res://scripts/blood_splat.gd" id="2_meob3"]
 
-[node name="blood_splat" type="GPUParticles2D"]
+[sub_resource type="Gradient" id="Gradient_p3p5w"]
+offsets = PackedFloat32Array(0, 0.989899)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="blood_splat" type="CPUParticles2D"]
 emitting = false
 amount = 100
-process_material = ExtResource("1_vcsh0")
+lifetime = 3.0
 one_shot = true
+speed_scale = 2.5
 explosiveness = 1.0
+randomness = 0.27
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2.91
+initial_velocity_max = 30.0
+angular_velocity_max = 73.85
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_p3p5w")
 script = ExtResource("2_meob3")
