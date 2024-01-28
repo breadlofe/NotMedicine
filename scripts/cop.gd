@@ -17,7 +17,7 @@ func _ready():
 
 func _process(delta):
 	if state == "patrol":
-		if position.distance_to(target_position) > 0.5:
+		if not nav_agent.is_target_reached():
 			velocity = Vector2(nav_agent.get_next_path_position() - global_transform.origin).normalized() * speed
 			move_and_slide()
 		else:
