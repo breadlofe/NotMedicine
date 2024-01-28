@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 400
+@export var horn_stun_time : int = 4
 
 var item_active = false
 var has_item = false
@@ -53,7 +54,7 @@ func get_input():
 				ItemTypes.ItemTypes.DOCTORS_OUTFIT:
 					use_coat()
 				ItemTypes.ItemTypes.CLOWN_HORN:
-					pass
+					use_horn()
 				
 			
 func _physics_process(delta):
@@ -69,9 +70,10 @@ func pickup_handler(type):
 	match type:
 		ItemTypes.ItemTypes.SUPERSTAR:
 			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/NotMedicine.png")
+		ItemTypes.ItemTypes.CLOWN_HORN:
+			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/Horn.png")
 		ItemTypes.ItemTypes.DOCTORS_OUTFIT:
 			$Camera2D/ItemHUD/Control/TextureRect.texture = load("res://sprites/LabCoat.png")			
-	
 	
 	current_item = type
 			
@@ -88,6 +90,21 @@ func use_superstar():
 	
 	$Camera2D/ItemHUD/Control/TextureRect.texture = null
 
+
+func use_horn():
+	item_active = true
+	has_item = false
+	
+	SignalBus.on_horn_fired.emit(horn_stun_time)
+	timer.wait_time = horn_stun_time
+	timer.start()
+	
+	await timer.timeout
+	
+	item_active = false
+	$Camera2D/ItemHUD/Control/TextureRect.texture = null
+
+
 func use_coat():
 	coat_active = true
 	item_active = true
@@ -97,13 +114,11 @@ func use_coat():
 	
 	await timer.timeout
 
-	has_item = false	
+	has_item = false
 	coat_active = false
 	item_active = false
 	$Camera2D/ItemHUD/Control/TextureRect.texture = null
 	
-	
-
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("patient_group"):

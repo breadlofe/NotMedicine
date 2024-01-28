@@ -1,26 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxasnodypxr0x"]
+[gd_scene load_steps=3 format=3 uid="uid://cxasnodypxr0x"]
 
 [ext_resource type="PackedScene" uid="uid://cptmdfs0olo5j" path="res://scenes/characters/doctor.tscn" id="1_odpv3"]
 [ext_resource type="PackedScene" uid="uid://dpf3gjlyo62kr" path="res://scenes/player.tscn" id="2_63his"]
-[ext_resource type="PackedScene" uid="uid://b2ry3d0mgvawo" path="res://scenes/horn.tscn" id="3_n0psw"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_4ama2"]
-vertices = PackedVector2Array(1512, 796, 13, 802, 11, 10, 1517, 10)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1, 0, 1528, 1, 1522, 806, 4, 813)])
-source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="DoctorTest" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_odpv3")]
 position = Vector2(363, 299)
+speed = 200
 patrol_point_group = "DocPatrol"
+idle_time = 2.5
 
 [node name="player" parent="." instance=ExtResource("2_63his")]
 position = Vector2(818, 256)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_4ama2")
 
 [node name="Marker2D" type="Marker2D" parent="." groups=["DocPatrol"]]
 position = Vector2(364, 302)
@@ -33,6 +25,3 @@ position = Vector2(764, 148)
 
 [node name="Marker2D4" type="Marker2D" parent="." groups=["DocPatrol"]]
 position = Vector2(764, 302)
-
-[node name="Sprite2D" parent="." instance=ExtResource("3_n0psw")]
-position = Vector2(526, 170)
