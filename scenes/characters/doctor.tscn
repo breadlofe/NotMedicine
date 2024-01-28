@@ -36,6 +36,7 @@ shape = SubResource("CircleShape2D_r3vci")
 one_shot = true
 
 [node name="StunTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="Visibility" to="." method="_on_visibility_body_entered"]
 [connection signal="body_exited" from="Visibility" to="." method="_on_visibility_body_exited"]
