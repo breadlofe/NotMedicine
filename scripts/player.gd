@@ -20,17 +20,21 @@ func _init():
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	input_direction = input_direction.normalized()
+	
+	#superstar effect
 	if superstar_active:
 		velocity = input_direction * speed * 2
 	else:
 		velocity = input_direction * speed
 	
 
+	#rotate player.
 	if(input_direction.length() > 0):
 		rotation_degrees = rad_to_deg(atan2(input_direction.y, input_direction.x)) - 90
 
 
 	
+	# hud cooldown effect
 	if item_active:
 		$Camera2D/ItemHUD/Control/ProgressBar.value = timer.time_left / timer.wait_time 
 	
